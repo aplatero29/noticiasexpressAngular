@@ -8,15 +8,16 @@
     </div> -->
 
     <!-- Login Form -->
-    <form [formGroup]="loginForm" (ngSumbit)="onLogin(loginForm.value)">
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm.value)">
       <input type="text" id="login" class="fadeIn second" placeholder="login" formControlName="email">
       <input type="password" id="password" class="fadeIn third" placeholder="password" formControlName="password">
       <button type="submit" class="fadeIn fourth">Log In</button>
     </form>
-
+    
     <!-- Remind Passowrd -->
-    <div id="formFooter">
-      <a class="underlineHover" href="#">Forgot Password?</a>
+     <div id="formFooter" class="alert alert-danger" *ngIf="mensajeError">
+      <!-- <a class="underlineHover" href="#">Forgot Password?</a> -->
+      <p>{{ mensajeError }}</p> 
     </div>
 
   </div>

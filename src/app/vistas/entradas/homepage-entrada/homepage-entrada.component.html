@@ -1,1 +1,125 @@
-<p>homepage-entrada works!</p>
+<app-header></app-header>
+<!-- *ngFor="let item of entrada | keyvalue" -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+  integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+  crossorigin="anonymous"
+/>
+<section class="blog-listing gray-bg">
+  <div class="container">
+    <div class="row align-items-start">
+      <div class="col-lg-8 m-15px-tb">
+        <div class="row">
+          <div class="col-sm-6" *ngFor="let entrada of entradas">
+            <div class="blog-grid">
+              <div class="blog-img">
+                <!-- <div class="date">
+                  <span>04</span>
+                  <label>FEB </label>
+                </div> -->
+                <a href="#">
+                  <img src="{{ entrada.imagen }}" alt="">
+                  <!-- <img
+                    src="https://via.placeholder.com/400x200/FFB6C1/000000"
+                    title=""
+                    alt=""
+                  /> -->
+                </a>
+              </div>
+              <div class="blog-info">
+                <h5>
+                  <a href="#">{{ entrada.titulo }}</a>
+                </h5>
+                <p>
+                  {{ entrada.descripcion }}
+                </p>
+                <div class="btn-bar">
+                  <a href="#" class="px-btn-arrow">
+                    <span>Read More</span>
+                    <i class="arrow"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pagination -->
+          <div class="col-12">
+            <ul class="pagination justify-content-center">
+              <li class="page-item">
+                <a class="page-link" href="#" tabindex="-1"
+                  ><i class="fas fa-chevron-left"></i
+                ></a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#"
+                  >2 <span class="sr-only">(current)</span></a
+                >
+              </li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#"
+                  ><i class="fas fa-chevron-right"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+          <!-- End Pagination -->
+        </div>
+      </div>
+
+      <div class="col-lg-4 m-15px-tb blog-aside">
+        <!-- Author -->
+        <!-- <div class="widget widget-author">
+          <div class="widget-title">
+            <h3>Author</h3>
+          </div>
+          <div class="widget-body">
+            <div class="media align-items-center">
+              <div class="avatar">
+                <img
+                  src="https://bootdey.com/img/Content/avatar/avatar6.png"
+                  title=""
+                  alt=""
+                />
+              </div>
+              <div class="media-body">
+                <h6>
+                  Hello, I'm<br />
+                  Rachel Roth
+                </h6>
+              </div>
+            </div>
+            <p>
+              I design and develop services for customers of all sizes,
+              specializing in creating stylish, modern websites, web services
+              and online stores
+            </p>
+          </div>
+        </div> -->
+        <!-- End Author -->
+
+        <!-- widget Tags -->
+        <div class="widget widget-tags">
+          <div class="widget-title">
+            <h3>Categorias</h3>
+          </div>
+          <div class="widget-body">
+            <div
+              class="nav tag-cloud"
+              *ngFor="let categoria of categorias"
+              (click)="verEntradasEnCategoria(categoria.id)"
+            >
+              <p class="categoria-tags">{{ categoria.nombre }}</p>
+            </div>
+          </div>
+        </div>
+        <!-- End widget Tags -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

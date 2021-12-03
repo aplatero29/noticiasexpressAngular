@@ -6,8 +6,13 @@ import {
   Validators,
   EmailValidator,
 } from '@angular/forms';
+
+import { HttpHeaderResponse, HttpHeaders } from '@angular/common/http';
 import { ApiService } from '../../servicios/api/api.service';
 import { LoginI } from '../../modelos/login.interface';
+import { ResponseI } from '../../modelos/response.interface';
+
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -16,23 +21,35 @@ import { LoginI } from '../../modelos/login.interface';
 })
 export class LoginComponent implements OnInit {
   loginForm = new FormGroup({
-    email: new FormControl('we@we.com', Validators.required),
+    email: new FormControl('prueba@prueba.com', Validators.required),
     password: new FormControl('123456', Validators.required),
   });
 
-  constructor(private api: ApiService) {}
+  mensajeError: string = '';
 
-  ngOnInit(): void {}
+  constructor(private api: ApiService, private router: Router) {}
+
+  ngOnInit(): void {
+    this.comprobarToken();
+  }
+
+  comprobarToken() {
+    if (localStorage.getItem('token')) {
+      this.router.navigate(['entradas']);
+    }
+  }
 
   onLogin(form: LoginI) {
-    /* this.api.LoginByEmail(form).subscribe(
-      (data) => {
-        console.log(data);
+    this.api.LoginByEmail(form).subscribe(
+      (res) => {
+        console.log(res);
+        localStorage.setItem('token', `${res.token_type} ${res.access_token}`); //Agregamos el token como Bearer XXXXX
+        this.router.navigate(['entradas']);
       },
       (err) => {
-        console.error(err);
+        console.log(err);
+        this.mensajeError = err.error;
       }
-    ); */
-    console.log("prueba");
+    );
   }
 }

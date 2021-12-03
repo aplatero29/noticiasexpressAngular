@@ -1,1 +1,37 @@
-<p>dashboard works!</p>
+<app-header></app-header>
+
+<div class="container table-responsive-sm">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Usuario</th>
+        <th scope="col">Categoria</th>
+        <th scope="col">Titulo</th>
+        <th scope="col">Imagen</th>
+        <th scope="col">Descripcion</th>
+        <th scope="col">Fecha de creacion</th>
+        <th scope="col">Fecha de actualizacion</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let entrada of entradas">
+        <th scope="row">{{ entrada.id }}</th>
+        <td>{{ entrada.autor.nombre }}</td>
+        <td>{{ entrada.categoria.nombre }}</td>
+        <td>{{ entrada.titulo }}</td>
+        <td><img src="{{ entrada.imagen }}" alt="" /></td>
+        <td>
+          <span class="d-inline-block text-truncate" style="max-width: 100px">{{
+            entrada.descripcion
+          }}</span>
+        </td>
+        <td>{{ entrada.created_at }}</td>
+        <td>{{ entrada.updated_at }}</td>
+        <td><p>TO DO</p></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<app-footer></app-footer>
