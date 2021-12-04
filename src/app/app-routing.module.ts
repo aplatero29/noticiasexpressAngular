@@ -5,15 +5,20 @@ import { DashboardComponent } from './vistas/dashboard/dashboard.component';
 import { EditarEntradaComponent } from './vistas/entradas/editar-entrada/editar-entrada.component';
 import { NuevaEntradaComponent } from './vistas/entradas/nueva-entrada/nueva-entrada.component';
 import { HomepageEntradaComponent } from './vistas/entradas/homepage-entrada/homepage-entrada.component';
+import { DetalleEntradaComponent } from './vistas/entradas/detalle-entrada/detalle-entrada.component';
+import { VerEntradasComponent } from './vistas/categorias/ver-entradas/ver-entradas.component';
+
 //import { homedir } from 'os';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: 'entradas', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'entradas/editar', component: EditarEntradaComponent },
   { path: 'entradas/nueva', component: NuevaEntradaComponent },
   { path: 'entradas', component: HomepageEntradaComponent },
+  { path: 'entrada/:id', component: DetalleEntradaComponent },
+  { path: 'categoria/:id', component: VerEntradasComponent },
 ];
 
 @NgModule({
@@ -28,4 +33,5 @@ export const routingComponents = [
   EditarEntradaComponent,
   NuevaEntradaComponent,
   HomepageEntradaComponent,
+  VerEntradasComponent,
 ];
