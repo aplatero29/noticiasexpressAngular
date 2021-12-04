@@ -34,21 +34,23 @@ export class LoginComponent implements OnInit {
   }
 
   comprobarToken() {
+    console.log(localStorage);
     if (localStorage.getItem('token')) {
       this.router.navigate(['entradas']);
     }
   }
 
   onLogin(form: LoginI) {
+    this.mensajeError = '';
     this.api.LoginByEmail(form).subscribe(
       (res) => {
         console.log(res);
-        localStorage.setItem('token', `${res.token_type} ${res.access_token}`); //Agregamos el token como Bearer XXXXX
+        //localStorage.setItem('token', `${res.token_type} ${res.access_token}`); //Agregamos el token como Bearer XXXXX
         this.router.navigate(['entradas']);
       },
       (err) => {
         console.log(err);
-        this.mensajeError = err.error;
+        this.mensajeError = 'Email o contraseña incorrectos';
       }
     );
   }
