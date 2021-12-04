@@ -21,7 +21,15 @@ export class DashboardComponent implements OnInit {
       this.entradas = Object.values(this.entradas[0]);
       /************************ */
       this.parseFechas();
+
+      this.comprobarToken();
     });
+  }
+
+  comprobarToken() {
+    if (localStorage.getItem('token')) {
+      this.router.navigate(['login']);
+    }
   }
 
   parseFechas() {
