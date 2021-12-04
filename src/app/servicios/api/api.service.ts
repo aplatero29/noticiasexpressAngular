@@ -24,8 +24,18 @@ export class ApiService {
     return this.http.get<EntradasI[]>(dir);
   }
 
+  getEntrada(idEntrada: number | string): Observable<EntradasI[]> {
+    let dir = this.url + 'entradas/' + idEntrada;
+    return this.http.get<EntradasI[]>(dir);
+  }
+
   getAllCategorias(): Observable<CategoriasI[]> {
     let dir = this.url + 'categorias';
-    return this.http.get<CategoriasI[]>(dir)
+    return this.http.get<CategoriasI[]>(dir);
+  }
+
+  getEntradasPorCategoria(idCategoria: number | string): Observable<CategoriasI[]> {
+    let dir = this.url + 'categorias/' + idCategoria;
+    return this.http.get<CategoriasI[]>(dir);
   }
 }

@@ -11,7 +11,7 @@ import { CategoriasI } from 'src/app/modelos/listarcategorias.interface';
 })
 export class HomepageEntradaComponent implements OnInit {
   entradas: EntradasI[] = [];
-  categorias: CategoriasI[] = [];
+/*   categorias: CategoriasI[] = []; */
 
   constructor(private api: ApiService, private router: Router) {}
 
@@ -19,16 +19,17 @@ export class HomepageEntradaComponent implements OnInit {
     this.api.getAllEntradas(1).subscribe((data) => {
       /***************  NO TOCAR -----  TRANSFORMA EL JSON EN UN ARRAY, Y NUEVAMENTE OTRO ARRAY */
       this.entradas = Object.values(data);
+      console.log(this.entradas);
       console.log(this.entradas[0]);
       this.entradas = Object.values(this.entradas[0]);
       /************************ */
       this.parseFechas();
     });
 
-    this.api.getAllCategorias().subscribe((data) => {
+/*     this.api.getAllCategorias().subscribe((data) => {
       this.categorias = Object.values(data);
       this.categorias = Object.values(this.categorias[0]);
-    });
+    }); */
   }
 
   parseFechas() {
@@ -39,7 +40,11 @@ export class HomepageEntradaComponent implements OnInit {
     });
   }
 
-  verEntradasEnCategoria(id: any) {
+  entradaInfo(id: number) {
     console.log(id);
   }
+/*   verEntradasEnCategoria(id: number) {
+    console.log(id);
+    this.router.navigate(['categoria', id])
+  } */
 }

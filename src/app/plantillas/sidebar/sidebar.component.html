@@ -1,0 +1,174 @@
+<div class="col center m-15px-tb blog-aside">
+        <!-- Autor -->
+        <!-- <div class="widget widget-author">
+          <div class="widget-title">
+            <h3>Author</h3>
+          </div>
+          <div class="widget-body">
+            <div class="media align-items-center">
+              <div class="avatar">
+                <img
+                  src="https://bootdey.com/img/Content/avatar/avatar6.png"
+                  title=""
+                  alt=""
+                />
+              </div>
+              <div class="media-body">
+                <h6>
+                  Hello, I'm<br />
+                  Rachel Roth
+                </h6>
+              </div>
+            </div>
+            <p>
+              I design and develop services for customers of all sizes,
+              specializing in creating stylish, modern websites, web services
+              and online stores
+            </p>
+          </div>
+        </div> -->
+        <!-- End Author -->
+
+        <!-- widget Tags -->
+        
+        <div class="container mt-3">
+          
+          <!-- <h2 class="center">Some tags cloud</h2>
+          <p class="center">Click on X sign to close the tag</p>
+          <hr /> -->
+          <div class="row">
+            <div class="d-inline-flex">
+            <div class="col">
+              <div class="card shadow">
+                <div class="card-body">
+                  <h4 class="card-title"><i class="fas fa-tags"></i>&nbsp;&nbsp;Categorias </h4>
+                  <p class="center">Selecciona la categoria para buscar</p>
+                  <hr>
+                  
+                  <div
+                    class="
+                      chip chip-md
+                      success-color
+                      white-text
+                      z-depth-2
+                      mr-0 tag-cloud py-1
+                    " *ngFor="let categoria of todasCategorias"
+                  >
+                    
+                    <a class="disabled" (click)="verEntradasEnCategoria(categoria.id)"> &nbsp;{{ categoria.nombre }} </a>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <!-- <div class="col-sm-8">
+                <div class="card">
+                    <div class="card-body">
+                      <h4 class="card-title">Tags without shadows</h4>
+                      <div class="chip chip-md elegant-color  white-text mr-0"><i class="fab fa-html5 fa-lg"></i>
+                        &nbsp;&nbsp;HTML
+                        <i class="close  white-text fas fa-times"></i>
+                      </div><div class="chip chip-md orange lighten-2 white-text mr-0"><i class="fab fa-amazon-pay fa-lg"></i>
+                        &nbsp;&nbsp;Amazon pay
+                        <i class="close white-text fas fa-times"></i>
+                      </div>
+                      <div class="chip chip-md brown lighten-1 white-text mr-0"><i class="fas fa-code fa-lg"></i>
+                        &nbsp;&nbsp;Code
+                        <i class="close white-text fas fa-times"></i>
+                      </div>
+                      <div class="chip chip-md deep-orange lighten-1 white-text mr-0"><i class="fas fa-car-alt fa-lg"></i>
+                        &nbsp;&nbsp;Cars
+                        <i class="close white-text fas fa-times"></i>
+                      </div>
+                      <div class="chip chip-md aqua-gradient white-text mr-0"><i class="fab fa-windows fa-lg"></i>
+                        &nbsp;&nbsp;Windows
+                        <i class="close white-text fas fa-times"></i>
+                      </div>
+                      <div class="chip chip-md mdb-color lighten-1 white-text mr-0"><i class="fab fa-apple fa-lg"></i>
+                        &nbsp;&nbsp;Apple
+                        <i class="close white-text fas fa-times"></i>
+                      </div>
+                      <div class="chip chip-md peach-gradient white-text mr-0"><i class="far fa-images fa-lg"></i>
+                        &nbsp;&nbsp;Images
+                        <i class="close white-text fas fa-times"></i>
+                      </div>
+                      <div class="chip chip-md elegant-color  white-text mr-0"><i class="fab fa-html5 fa-lg"></i>
+                        &nbsp;&nbsp;HTML
+                        <i class="close  white-text fas fa-times"></i>
+                      </div><div class="chip chip-md orange lighten-2 white-text mr-0"><i class="fab fa-amazon-pay fa-lg"></i>
+                        &nbsp;&nbsp;Amazon pay
+                        <i class="close white-text fas fa-times"></i>
+                      </div>
+                      <div class="chip chip-md brown lighten-1 white-text mr-0"><i class="fas fa-code fa-lg"></i>
+                        &nbsp;&nbsp;Code
+                        <i class="close white-text fas fa-times"></i>
+                      </div>
+                      <div class="chip chip-md deep-orange lighten-1 white-text mr-0"><i class="fas fa-car-alt fa-lg"></i>
+                        &nbsp;&nbsp;Cars
+                        <i class="close white-text fas fa-times"></i>
+                      </div>
+                      <div class="chip chip-md aqua-gradient white-text mr-0"><i class="fab fa-windows fa-lg"></i>
+                        &nbsp;&nbsp;Windows
+                        <i class="close white-text fas fa-times"></i>
+                      </div>
+                      <div class="chip chip-md mdb-color lighten-1 white-text mr-0"><i class="fab fa-apple fa-lg"></i>
+                        &nbsp;&nbsp;Apple
+                        <i class="close white-text fas fa-times"></i>
+                      </div>
+                      <div class="chip chip-md peach-gradient white-text mr-0"><i class="far fa-images fa-lg"></i>
+                        &nbsp;&nbsp;Images
+                        <i class="close white-text fas fa-times"></i>
+                      </div>
+                      <div class="chip chip-md elegant-color  white-text mr-0"><i class="fab fa-html5 fa-lg"></i>
+                        &nbsp;&nbsp;HTML
+                        <i class="close  white-text fas fa-times"></i>
+                      </div><div class="chip chip-md orange lighten-2 white-text mr-0"><i class="fab fa-amazon-pay fa-lg"></i>
+                        &nbsp;&nbsp;Amazon pay
+                        <i class="close white-text fas fa-times"></i>
+                      </div>
+                      <div class="chip chip-md brown lighten-1 white-text mr-0"><i class="fas fa-code fa-lg"></i>
+                        &nbsp;&nbsp;Code
+                        <i class="close white-text fas fa-times"></i>
+                      </div>
+                      <div class="chip chip-md deep-orange lighten-1 white-text mr-0"><i class="fas fa-car-alt fa-lg"></i>
+                        &nbsp;&nbsp;Cars
+                        <i class="close white-text fas fa-times"></i>
+                      </div>
+                      <div class="chip chip-md aqua-gradient white-text mr-0"><i class="fab fa-windows fa-lg"></i>
+                        &nbsp;&nbsp;Windows
+                        <i class="close white-text fas fa-times"></i>
+                      </div>
+                      <div class="chip chip-md mdb-color lighten-1 white-text mr-0"><i class="fab fa-apple fa-lg"></i>
+                        &nbsp;&nbsp;Apple
+                        <i class="close white-text fas fa-times"></i>
+                      </div>
+                      <div class="chip chip-md peach-gradient white-text mr-0"><i class="far fa-images fa-lg"></i>
+                        &nbsp;&nbsp;Images
+                        <i class="close white-text fas fa-times"></i>
+                      </div>
+                    </div>
+                  </div>
+            </div> -->
+        <!-- <div class="widget widget-tags">
+          <div class="widget-title">
+            <h3>Categorias</h3>
+          </div>
+          <div class="widget-body">
+            <div
+              class="nav tag-cloud"
+              *ngFor="let categoria of todasCategorias"
+              (click)="verEntradasEnCategoria(categoria.id)"
+            >
+            <div class="chip chip-md elegant-color  white-text mr-0"><i class="fab fa-html5 fa-lg"></i>
+                        &nbsp;&nbsp;HTML
+                        <i class="close  white-text fas fa-times"></i>
+                      </div>
+
+              <a class="categoria-tags">{{ categoria.nombre }}</a>
+            </div>
+          </div>
+        </div> -->
+        <!-- End widget Tags -->

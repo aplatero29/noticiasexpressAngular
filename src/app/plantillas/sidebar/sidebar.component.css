@@ -1,0 +1,18 @@
+.tag-cloud a {
+  padding: 4px 15px;
+  font-size: 13px;
+  color: #ffffff;
+  background: #20247b;
+  border-radius: 3px;
+  margin-right: 4px;
+  margin-bottom: 4px;
+}
+.tag-cloud a:hover {
+  background: #fc5356;
+}
+
+a.disabled {
+    pointer-events: unset;
+    cursor: pointer;
+    text-decoration: none;
+}

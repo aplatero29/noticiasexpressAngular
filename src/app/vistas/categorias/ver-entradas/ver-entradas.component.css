@@ -1,10 +1,12 @@
-body{margin-top:20px;}
+body {
+  margin-top: 20px;
+}
 .blog-listing {
-    padding-top: 30px;
-    padding-bottom: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 .gray-bg {
-    background-color: #f5f5f5;
+  background-color: #f5f5f5;
 }
 /* Blog 
 ---------------------*/
@@ -55,7 +57,6 @@ body{margin-top:20px;}
 .blog-grid .blog-info .btn-bar {
   margin-top: 20px;
 }
-
 
 /* Blog Sidebar
 -------------------*/
@@ -118,7 +119,7 @@ body{margin-top:20px;}
   padding-bottom: 10px;
 }
 .blog-aside .post-aside .post-aside-meta a {
-  color: #6F8BA4;
+  color: #6f8ba4;
   font-size: 12px;
   text-transform: uppercase;
   display: inline-block;
@@ -147,14 +148,14 @@ body{margin-top:20px;}
   font-weight: 600;
 }
 .blog-aside .latest-post-aside .lpa-meta a {
-  color: #6F8BA4;
+  color: #6f8ba4;
   font-size: 12px;
   text-transform: uppercase;
   display: inline-block;
   margin-right: 10px;
 }
 
-.tag-cloud p {
+.tag-cloud a {
   padding: 4px 15px;
   font-size: 13px;
   color: #ffffff;
@@ -163,11 +164,9 @@ body{margin-top:20px;}
   margin-right: 4px;
   margin-bottom: 4px;
 }
-.tag-cloud p:hover {
+.tag-cloud a:hover {
   background: #fc5356;
 }
-
-
 
 .blog-single {
   padding-top: 30px;
@@ -255,8 +254,12 @@ body{margin-top:20px;}
 }
 
 .categoria-tags {
-  user-select:none;
+  user-select: none;
   cursor: pointer;
+}
+
+.categoria-nombre {
+  color: #ff6f43;
 }
 
 .article-comment {
@@ -273,11 +276,20 @@ body{margin-top:20px;}
   font-size: 22px;
 }
 img {
-    max-width: 100%;
+  max-width: 100%;
 }
 img {
-    vertical-align: middle;
-    border-style: none;
-    cursor: pointer;
+  vertical-align: middle;
+  border-style: none;
+  cursor: pointer;
 }
 
+.chip.chip-md {
+  height: 42px;
+  line-height: 42px;
+  border-radius: 21px;
+}
+
+.center {
+  text-align: center;
+}
