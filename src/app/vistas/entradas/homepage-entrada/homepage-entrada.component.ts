@@ -11,7 +11,7 @@ import { CategoriasI } from 'src/app/modelos/listarcategorias.interface';
 })
 export class HomepageEntradaComponent implements OnInit {
   entradas: EntradasI[] = [];
-/*   categorias: CategoriasI[] = []; */
+  /*   categorias: CategoriasI[] = []; */
 
   constructor(private api: ApiService, private router: Router) {}
 
@@ -26,7 +26,7 @@ export class HomepageEntradaComponent implements OnInit {
       this.parseFechas();
     });
 
-/*     this.api.getAllCategorias().subscribe((data) => {
+    /*     this.api.getAllCategorias().subscribe((data) => {
       this.categorias = Object.values(data);
       this.categorias = Object.values(this.categorias[0]);
     }); */
@@ -42,8 +42,9 @@ export class HomepageEntradaComponent implements OnInit {
 
   entradaInfo(id: number) {
     console.log(id);
+    this.router.navigate(['entrada', id]);
   }
-/*   verEntradasEnCategoria(id: number) {
+  /*   verEntradasEnCategoria(id: number) {
     console.log(id);
     this.router.navigate(['categoria', id])
   } */

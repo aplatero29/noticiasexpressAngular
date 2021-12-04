@@ -34,4 +34,5 @@ export const routingComponents = [
   NuevaEntradaComponent,
   HomepageEntradaComponent,
   VerEntradasComponent,
+  DetalleEntradaComponent,
 ];

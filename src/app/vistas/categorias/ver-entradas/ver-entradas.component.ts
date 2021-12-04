@@ -47,5 +47,6 @@ export class VerEntradasComponent implements OnInit {
 
   entradaInfo(id: number) {
     console.log(id);
+    this.router.navigate(['entrada', id]);
   }
 }
