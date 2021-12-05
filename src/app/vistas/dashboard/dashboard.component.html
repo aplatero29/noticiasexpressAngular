@@ -20,7 +20,7 @@
         <th scope="row">{{ entrada.id }}</th>
         <td>{{ entrada.autor.nombre }}</td>
         <td>{{ entrada.categoria.nombre }}</td>
-        <td>{{ entrada.titulo }}</td>
+        <td><span class="d-inline-block text-truncate" style="max-width: 100px">{{ entrada.titulo }}</span></td>
         <td><img src="{{ entrada.imagen }}" alt="" /></td>
         <td>
           <span class="d-inline-block text-truncate" style="max-width: 100px">{{

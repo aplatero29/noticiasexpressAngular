@@ -1,6 +1,6 @@
 <div class="col center m-15px-tb blog-aside">
-        <!-- Autor -->
-        <!-- <div class="widget widget-author">
+  <!-- Autor -->
+  <!-- <div class="widget widget-author">
           <div class="widget-title">
             <h3>Author</h3>
           </div>
@@ -27,44 +27,51 @@
             </p>
           </div>
         </div> -->
-        <!-- End Author -->
+  <!-- End Author -->
 
-        <!-- widget Tags -->
-        
-        <div class="container mt-3">
-          
-          <!-- <h2 class="center">Some tags cloud</h2>
+  <!-- widget Tags -->
+
+  <div class="container mt-3">
+    <!-- <h2 class="center">Some tags cloud</h2>
           <p class="center">Click on X sign to close the tag</p>
           <hr /> -->
-          <div class="row">
-            <div class="d-inline-flex">
-            <div class="col">
-              <div class="card shadow">
-                <div class="card-body">
-                  <h4 class="card-title"><i class="fas fa-tags"></i>&nbsp;&nbsp;Categorias </h4>
-                  <p class="center">Selecciona la categoria para buscar</p>
-                  <hr>
-                  
-                  <div
-                    class="
-                      chip chip-md
-                      success-color
-                      white-text
-                      z-depth-2
-                      mr-0 tag-cloud py-1
-                    " *ngFor="let categoria of todasCategorias"
-                  >
-                    
-                    <a class="disabled" (click)="verEntradasEnCategoria(categoria.id)"> &nbsp;{{ categoria.nombre }} </a>
-                  </div>
-                </div>
+    <div class="row">
+      <div class="d-inline-flex">
+        <div class="col">
+          <div class="card shadow">
+            <div class="card-body">
+              <h4 class="card-title">
+                <i class="fas fa-tags"></i>&nbsp;&nbsp;Categorias
+              </h4>
+              <p class="center">Selecciona la categoria para buscar</p>
+              <hr />
 
+              <div
+                class="
+                  chip chip-md
+                  success-color
+                  white-text
+                  z-depth-2
+                  mr-0
+                  tag-cloud
+                  py-1
+                "
+                *ngFor="let categoria of todasCategorias"
+              >
+                <a
+                  class="disabled"
+                  (click)="verEntradasEnCategoria(categoria.id)"
+                >
+                  &nbsp;{{ categoria.nombre }}
+                </a>
               </div>
             </div>
           </div>
         </div>
-        </div>
-        <!-- <div class="col-sm-8">
+      </div>
+    </div>
+  </div>
+  <!-- <div class="col-sm-8">
                 <div class="card">
                     <div class="card-body">
                       <h4 class="card-title">Tags without shadows</h4>
@@ -152,7 +159,7 @@
                     </div>
                   </div>
             </div> -->
-        <!-- <div class="widget widget-tags">
+  <!-- <div class="widget widget-tags">
           <div class="widget-title">
             <h3>Categorias</h3>
           </div>
@@ -171,4 +178,5 @@
             </div>
           </div>
         </div> -->
-        <!-- End widget Tags -->
+  <!-- End widget Tags -->
+</div>
