@@ -13,8 +13,9 @@
           <div class="article-img">
             <img src="{{ item.imagen }}" title="" alt="" />
           </div>
-          <div class="d-flex justify-content-between">
-            <div class="media">
+          <div class="p-4">
+          <div class="">
+            <div class="media row">
               <!-- <div class="avatar">
                 <img
                   src="https://bootdey.com/img/Content/avatar/avatar1.png"
@@ -22,10 +23,10 @@
                   alt=""
                 />
               </div> -->
-              <div class="article-title">
+              <div class="article-title col-6">
               <h2>{{ item.titulo }}</h2>
             </div>
-              <div class="media-body pb-2">
+              <div class="media-body pb-2 col-6">
                 <label>{{ item.autor.nombre }}</label>
                 <span>{{ item.created_at }}</span>
               </div>
@@ -47,6 +48,7 @@
             <label for="" class="padding">Categoria: </label>
             <a  (click)=verEntradasEnCategoria(item.categoria.id)>{{ item.categoria.nombre }}</a>
           </div>
+        </div>
         </article>
         <div class="contact-form article-comment">
           <h4>Deja un comentario</h4>

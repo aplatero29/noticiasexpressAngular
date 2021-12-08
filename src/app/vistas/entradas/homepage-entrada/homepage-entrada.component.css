@@ -15,11 +15,23 @@ body{margin-top:20px;}
   background: #ffffff;
   margin-top: 15px;
   margin-bottom: 15px;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 95%;
+  
 }
 .blog-grid .blog-img {
   position: relative;
+  padding-bottom: 80%;
 }
-.blog-grid .blog-img .date {
+.blog-img img {
+position: absolute;
+object-fit: fill;
+width: 100%;
+height: 100%;
+}
+/* .blog-grid .blog-img .date {
   position: absolute;
   background: #fc5356;
   color: #ffffff;
@@ -27,19 +39,21 @@ body{margin-top:20px;}
   left: 10px;
   top: 10px;
   border-radius: 4px;
-}
-.blog-grid .blog-img .date span {
+} */
+/* .blog-grid .blog-img .date span {
   font-size: 22px;
   display: block;
   line-height: 22px;
   font-weight: 700;
-}
-.blog-grid .blog-img .date label {
+} */
+/* .blog-grid .blog-img .date label {
   font-size: 14px;
   margin: 0;
-}
+} */
 .blog-grid .blog-info {
   padding: 20px;
+  
+  /* position: relative; */
 }
 .blog-grid .blog-info h5 {
   font-size: 22px;
@@ -51,9 +65,15 @@ body{margin-top:20px;}
 }
 .blog-grid .blog-info p {
   margin: 0;
+  /* margin-bottom: 30px; */
 }
 .blog-grid .blog-info .btn-bar {
-  margin-top: 20px;
+  /* margin-top: 20px; */
+  /* margin-bottom: 10px; */
+ /*  position: absolute; */
+  /* bottom: 0px; */
+  margin-top: 1em;
+  padding: auto;
 }
 
 
@@ -273,7 +293,10 @@ body{margin-top:20px;}
   font-size: 22px;
 }
 img {
+  width: 100%;
+  min-width: 100%;
     max-width: 100%;
+    height: 100%;    
 }
 img {
     vertical-align: middle;

@@ -17,10 +17,22 @@ body {
   background: #ffffff;
   margin-top: 15px;
   margin-bottom: 15px;
+    background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 95%;
 }
 .blog-grid .blog-img {
   position: relative;
+   padding-bottom: 80%;
 }
+.blog-img img {
+position: absolute;
+object-fit: fill;
+width: 100%;
+height: 100%;
+}
+/* 
 .blog-grid .blog-img .date {
   position: absolute;
   background: #fc5356;
@@ -39,7 +51,7 @@ body {
 .blog-grid .blog-img .date label {
   font-size: 14px;
   margin: 0;
-}
+} */
 .blog-grid .blog-info {
   padding: 20px;
 }
@@ -55,7 +67,7 @@ body {
   margin: 0;
 }
 .blog-grid .blog-info .btn-bar {
-  margin-top: 20px;
+  margin-top: 1em;
 }
 
 /* Blog Sidebar

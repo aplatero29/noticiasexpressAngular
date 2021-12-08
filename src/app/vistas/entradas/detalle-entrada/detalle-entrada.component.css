@@ -177,12 +177,12 @@ body{margin-top:20px;}
   border-radius: 5px;
   overflow: hidden;
   background: #ffffff;
-  padding: 15px;
+  padding: 0 ;
   margin: 15px 0 30px;
 }
 .article .article-title {
   /* padding: 15px 0 20px; */
-  padding-top: 15px;
+  /* padding-top: 15px; */
 }
 .article .article-title h6 {
   font-size: 14px;
