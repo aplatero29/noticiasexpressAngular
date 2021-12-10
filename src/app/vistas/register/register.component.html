@@ -7,11 +7,12 @@
       <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
     </div> -->
 
-    <!-- Login Form -->
-    <form [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm.value)">
-      <input type="text" id="login" class="fadeIn second" placeholder="Email..." formControlName="email">
+    <!-- Registro Form -->
+    <form [formGroup]="registroForm" (ngSubmit)="onRegistro(registroForm.value)">
+    <input type="text" id="login" class="fadeIn second" placeholder="Nombre..." formControlName="nombre">
+      <input type="text" id="email" class="fadeIn second" placeholder="Email..." formControlName="email">
       <input type="password" id="password" class="fadeIn third" placeholder="Contraseña..." formControlName="password">
-      <button type="submit" class="fadeIn fourth">Iniciar sesión</button>
+      <button type="submit" class="fadeIn fourth">Registrarse</button>
     </form>
     
     <!-- Remind Passowrd -->

@@ -1,17 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
-import {
-  FormGroup,
-  FormControl,
-  Validators,
-  EmailValidator,
-} from '@angular/forms';
-
-import { HttpHeaderResponse, HttpHeaders } from '@angular/common/http';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ApiService } from '../../servicios/api/api.service';
-import { LoginI } from '../../modelos/login.interface';
-import { ResponseI } from '../../modelos/response.interface';
-
+import { LoginI } from '../../modelos/auth.interface';
 import { Router } from '@angular/router';
 
 @Component({
@@ -30,23 +20,32 @@ export class LoginComponent implements OnInit {
   constructor(private api: ApiService, private router: Router) {}
 
   ngOnInit(): void {
-    this.comprobarToken();
+    /* this.comprobarToken(); */
   }
 
-  comprobarToken() {
+  /* comprobarToken() {
     console.log(localStorage);
+
     if (localStorage.getItem('token')) {
       this.router.navigate(['entradas']);
     }
-  }
+  } */
 
   onLogin(form: LoginI) {
     this.mensajeError = '';
-    this.api.LoginByEmail(form).subscribe(
+    this.api.login(form).subscribe(
       (res) => {
-        console.log(res);
-        //localStorage.setItem('token', `${res.token_type} ${res.access_token}`); //Agregamos el token como Bearer XXXXX
-        this.router.navigate(['entradas']);
+        let respuesta = Object.values(res);
+        let token = `${respuesta[0].original.token_type} ${respuesta[0].original.access_token}`;
+
+        console.log(respuesta);
+        console.log(res.userRol);
+
+        localStorage.setItem('token', token); //Agregamos el token como Bearer XXXXX
+        localStorage.setItem('rol', res.userRol);
+        if (localStorage.getItem('rol')) {
+          this.router.navigate(['entradas']);
+        }
       },
       (err) => {
         console.log(err);
