@@ -7,18 +7,25 @@ import { NuevaEntradaComponent } from './vistas/entradas/nueva-entrada/nueva-ent
 import { HomepageEntradaComponent } from './vistas/entradas/homepage-entrada/homepage-entrada.component';
 import { DetalleEntradaComponent } from './vistas/entradas/detalle-entrada/detalle-entrada.component';
 import { VerEntradasComponent } from './vistas/categorias/ver-entradas/ver-entradas.component';
+import { RegisterComponent } from './vistas/register/register.component';
+import { PaginacionComponent } from './plantillas/paginacion/paginacion.component';
+import { UsuarioDetalleComponent } from './vistas/usuario-detalle/usuario-detalle.component';
+import { PaginaNoEncontradaComponent } from './vistas/errores/pagina-no-encontrada/pagina-no-encontrada.component';
 
 //import { homedir } from 'os';
 
 const routes: Routes = [
   { path: '', redirectTo: 'entradas', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
+  { path: 'registro', component: RegisterComponent },
+  { path: 'usuario/:id', component: UsuarioDetalleComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'entradas/editar', component: EditarEntradaComponent },
   { path: 'entradas/nueva', component: NuevaEntradaComponent },
   { path: 'entradas', component: HomepageEntradaComponent },
   { path: 'entrada/:id', component: DetalleEntradaComponent },
   { path: 'categoria/:id', component: VerEntradasComponent },
+  { path: '**', component: PaginaNoEncontradaComponent },
 ];
 
 @NgModule({
@@ -35,4 +42,8 @@ export const routingComponents = [
   HomepageEntradaComponent,
   VerEntradasComponent,
   DetalleEntradaComponent,
+  RegisterComponent,
+  PaginacionComponent,
+  UsuarioDetalleComponent,
+  PaginaNoEncontradaComponent
 ];

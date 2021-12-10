@@ -13,7 +13,13 @@ import { NuevaEntradaComponent } from './vistas/entradas/nueva-entrada/nueva-ent
 import { HomepageEntradaComponent } from './vistas/entradas/homepage-entrada/homepage-entrada.component'; */
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { PaginacionComponent } from './plantillas/paginacion/paginacion.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { RegisterComponent } from './vistas/register/register.component';
+import { UsuarioDetalleComponent } from './vistas/usuario-detalle/usuario-detalle.component';
+import { PaginaNoEncontradaComponent } from './vistas/errores/pagina-no-encontrada/pagina-no-encontrada.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     SidebarComponent,
     routingComponents,
+    PaginaNoEncontradaComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,8 +36,11 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    /* JwtHelperService, */
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
