@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthInterceptor } from 'src/app/interceptors/auth.interceptor';
 import { ApiService } from 'src/app/servicios/api/api.service';
 
 @Component({
