@@ -10,6 +10,11 @@ import { UsuariosI } from 'src/app/modelos/listarusuarios.interface';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
 };
+//let customHeader = new Headers({ Authorization: localStorage.getItem('token') || ''})
+const header = {
+  Authorization: localStorage.getItem('token') || '',
+};
+const requestOptions = { headers: header };
 
 @Injectable({
   providedIn: 'root',
@@ -39,15 +44,20 @@ export class ApiService {
     let token = localStorage.getItem('token');
     localStorage.clear();
     return this.http.post(dir, {
-      headers: { Authorization: 'Bearer ' + token },
+      headers: { Authorization: token },
     });
   }
   /****************** USUARIOS ******************/
   getUsuario() {
-    let dir = this.url + 'auth/me';
-    return this.http.get<UsuariosI[]>(dir, {
-      headers: { Authorization: 'Bearer ' + localStorage.getItem('token') },
+    let token = localStorage.getItem('token');
+    const httpHeaders = new HttpHeaders({
+      Authorization: token!,
     });
+
+    let dir = this.url + 'auth/me';
+
+    console.log(httpHeaders);
+    return this.http.get<UsuariosI>(dir, { headers: httpHeaders });
   }
   /****************** ENTRADAS ******************/
   getAllEntradas(pagina: number): Observable<EntradasI[]> {

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthInterceptor } from 'src/app/interceptors/auth.interceptor';
 import { ApiService } from 'src/app/servicios/api/api.service';
 
 @Component({
@@ -8,23 +9,23 @@ import { ApiService } from 'src/app/servicios/api/api.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  tipoDeUsuario: string | null = '';
+  idDeUsuario: number = 0;
+  rolDeUsuario: number = 0; //Atributo ENUM para los roles
 
   constructor(private api: ApiService, private router: Router) {}
 
   ngOnInit(): void {
-    //if (localStorage.getItem('token')) {
-      this.tipoDeUsuario = localStorage.getItem('rol') //this.getRol();
-      console.log(this.tipoDeUsuario) 
-    //}
+    this.getUser();
+    console.log(this.rolDeUsuario);
   }
 
- /*  getRol(): string {
-    if (localStorage.getItem('rol')) {
-      return localStorage.getItem('rol');
-    }
-    return '';
-  } */
+  getUser() {
+    this.api.getUsuario().subscribe((data) => {
+      console.log(data);
+      this.rolDeUsuario = data.rol;
+      this.idDeUsuario = data.id;
+    });
+  }
 
   goToLogin() {
     if (!localStorage.getItem('token')) {
@@ -38,7 +39,7 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-   logout() {
+  logout() {
     this.api.cerrarSesion();
     window.location.reload();
   }

@@ -6,10 +6,16 @@ export interface UsuariosI {
   nombre: string;
   email: string;
   password: string;
-  rol: ['Admin', 'Autor', 'Usuario'];
+  rol: roles;
   comentarios?: ComentariosI
   entradas?: EntradasI
   remember_token?: string;
   created_at: string | Date;
   updated_at: string | Date;
+}
+
+enum roles {
+  'Admin',
+  'Autor',
+  'Usuario'
 }

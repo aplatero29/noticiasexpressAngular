@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
     this.api.login(form).subscribe(
       (res) => {
         let respuesta = Object.values(res);
-        let token = `${respuesta[0].original.token_type} ${respuesta[0].original.access_token}`;
+        let token = `${respuesta[0].original.access_token}`;
 
         console.log(respuesta);
         console.log(res.userRol);

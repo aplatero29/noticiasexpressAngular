@@ -20,44 +20,51 @@
               </div>
               <div class="blog-info">
                 <h5>
-                  <a href="#">{{ entrada.titulo }}</a>
+                  <a (click)="entradaInfo(entrada.id)">{{ entrada.titulo }}</a>
                 </h5>
                 <p>
                   {{ entrada.descripcion }}
                 </p>
                 <div class="btn-bar">
                   <a href="#" class="px-btn-arrow">
-                    <span>Read More</span>
+                    <span class="link">Read More</span>
                     <i class="arrow"></i>
                   </a>
                 </div>
               </div>
             </div>
+           <!--  -->
           </div>
-
+<!-- <pagination-controls ></pagination-controls>  -->
           <!-- Pagination -->
-          <div class="col-12">
+          <!-- <div class="col-12">
             <ul class="pagination justify-content-center">
               <li class="page-item">
                 <a class="page-link" href="#" tabindex="-1"
                   ><i class="fas fa-chevron-left"></i
                 ></a>
               </li>
-              <li class="page-item"><a class="page-link" href="#">1</a></li>
               <li class="page-item">
-                <a class="page-link" href="#"
-                  >2 <span class="sr-only">(current)</span></a
-                >
+                <a class="page-link" href="#">1</a>
               </li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#">2</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#">3</a>
+              </li>
               <li class="page-item">
                 <a class="page-link" href="#"
                   ><i class="fas fa-chevron-right"></i
                 ></a>
               </li>
+              <span class="sr-only">(current)</span>
+
             </ul>
-          </div>
+          </div> -->
           <!-- End Pagination -->
+          <!--TODO: ADD PAGINATION-->
+          
         </div>
       </div>
 

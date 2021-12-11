@@ -37,7 +37,7 @@ export class RegisterComponent implements OnInit {
     this.api.registro(form).subscribe(
       (res) => {
         let respuesta = Object.values(res);
-        let token = `${respuesta[0].original.token_type} ${respuesta[0].original.access_token}`;
+        let token = `${respuesta[0].original.access_token}`;
         console.log(res)
         console.log(res.userRol);
         localStorage.setItem('token', token); //Agregamos el token como Bearer XXXXX

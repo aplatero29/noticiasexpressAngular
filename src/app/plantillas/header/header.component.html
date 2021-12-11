@@ -14,14 +14,16 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ms-auto">
-        <div [ngSwitch]="tipoDeUsuario">
+        <div [ngSwitch]="rolDeUsuario">
           <div *ngSwitchCase="'Usuario'" class="navbar-nav ms-auto">
             <li class="nav-item">
-              <!--TODO: ADD PROFILE PAGE -->
-              <a class="nav-link text-dark" [routerLink]="['/*']">Perfil</a>
+              <a class="nav-link text-dark" [routerLink]="['/usuario', ]">Perfil</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-dark" (click)="logout()" [routerLink]="['/']" 
+              <a
+                class="nav-link text-dark"
+                (click)="logout()"
+                [routerLink]="['/']"
                 >Cerrar sesión</a
               >
             </li>
@@ -33,9 +35,9 @@
               >
             </li>
             <li class="nav-item">
-              <!--TODO: ADD PROFILE PAGE -->
-
-              <a class="nav-link text-dark" [routerLink]="['/*']">Perfil</a>
+              <a class="nav-link text-dark" [routerLink]="['/usuario']"
+                >Perfil</a
+              >
             </li>
             <li class="nav-item">
               <a class="nav-link text-dark" [routerLink]="['/logout']"
@@ -50,9 +52,7 @@
               >
             </li>
             <li class="nav-item">
-              <!--TODO: ADD PROFILE PAGE -->
-
-              <a class="nav-link text-dark" [routerLink]="['/*']">Perfil</a>
+              <a class="nav-link text-dark" [routerLink]="['/usuario']">Perfil</a>
             </li>
             <li class="nav-item">
               <a class="nav-link text-dark" [routerLink]="['/logout']"
