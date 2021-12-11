@@ -17,7 +17,11 @@
         <div [ngSwitch]="rolDeUsuario">
           <div *ngSwitchCase="'Usuario'" class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link text-dark" [routerLink]="['/usuario', ]">Perfil</a>
+              <a
+                class="nav-link text-dark"
+                [routerLink]="['/usuario', idDeUsuario]"
+                >Perfil</a
+              >
             </li>
             <li class="nav-item">
               <a
@@ -35,7 +39,9 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link text-dark" [routerLink]="['/usuario']"
+              <a
+                class="nav-link text-dark"
+                [routerLink]="['/usuario', idDeUsuario]"
                 >Perfil</a
               >
             </li>
@@ -52,7 +58,11 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link text-dark" [routerLink]="['/usuario']">Perfil</a>
+              <a
+                class="nav-link text-dark"
+                [routerLink]="['/usuario', idDeUsuario]"
+                >Perfil</a
+              >
             </li>
             <li class="nav-item">
               <a class="nav-link text-dark" [routerLink]="['/logout']"
