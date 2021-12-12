@@ -5,11 +5,11 @@ import { CategoriasI } from 'src/app/modelos/listarcategorias.interface';
 import { ApiService } from 'src/app/servicios/api/api.service';
 
 @Component({
-  selector: 'app-sidebar',
+  selector: 'app-sidebar-categorias',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css'],
 })
-export class SidebarComponent implements OnInit {
+export class SidebarCategoriasComponent implements OnInit {
   todasCategorias: CategoriasI[] = [];
 
   constructor(private api: ApiService, private router: Router) {}

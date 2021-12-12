@@ -5,7 +5,7 @@ import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './plantillas/header/header.component';
 import { FooterComponent } from './plantillas/footer/footer.component';
-import { SidebarComponent } from './plantillas/sidebar/sidebar.component';
+import { SidebarCategoriasComponent } from './plantillas/sidebar-categorias/sidebar-categorias.component';
 /* import { LoginComponent } from './vistas/login/login.component';
 import { DashboardComponent } from './vistas/dashboard/dashboard.component';
 import { EditarEntradaComponent } from './vistas/entradas/editar-entrada/editar-entrada.component';
@@ -24,7 +24,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    SidebarComponent,
+    SidebarCategoriasComponent,
     routingComponents,
   ],
   imports: [

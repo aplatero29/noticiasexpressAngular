@@ -14,7 +14,7 @@ export class DashboardComponent implements OnInit {
   constructor(private api: ApiService, private router: Router) {}
 
   ngOnInit(): void {
-    this.api.getAllEntradas(1).subscribe((data) => {
+    this.api.getAllEntradas(1,10).subscribe((data) => {
       /***************  NO TOCAR -----  TRANSFORMA EL JSON EN UN ARRAY, Y NUEVAMENTE OTRO ARRAY */
       this.entradas = Object.values(data);
       console.log(this.entradas[0]);
