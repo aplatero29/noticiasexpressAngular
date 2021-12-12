@@ -15,9 +15,9 @@ import { HomepageEntradaComponent } from './vistas/entradas/homepage-entrada/hom
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { PaginacionComponent } from './plantillas/paginacion/paginacion.component';
 import { AuthInterceptor } from './interceptors/auth/auth.interceptor';
 import { HttpResponseInterceptor } from './interceptors/http/http.interceptor';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -33,11 +33,20 @@ import { HttpResponseInterceptor } from './interceptors/http/http.interceptor';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    NgxPaginationModule,
     /* JwtHelperService, */
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: HttpResponseInterceptor, multi:true}
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpResponseInterceptor,
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent],
 })

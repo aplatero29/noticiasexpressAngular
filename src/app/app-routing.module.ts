@@ -8,7 +8,6 @@ import { HomepageEntradaComponent } from './vistas/entradas/homepage-entrada/hom
 import { DetalleEntradaComponent } from './vistas/entradas/detalle-entrada/detalle-entrada.component';
 import { VerEntradasComponent } from './vistas/categorias/ver-entradas/ver-entradas.component';
 import { RegisterComponent } from './vistas/register/register.component';
-import { PaginacionComponent } from './plantillas/paginacion/paginacion.component';
 import { UsuarioDetalleComponent } from './vistas/usuario-detalle/usuario-detalle.component';
 import { PaginaNoEncontradaComponent } from './vistas/errores/pagina-no-encontrada/pagina-no-encontrada.component';
 
@@ -43,7 +42,6 @@ export const routingComponents = [
   VerEntradasComponent,
   DetalleEntradaComponent,
   RegisterComponent,
-  PaginacionComponent,
   UsuarioDetalleComponent,
   PaginaNoEncontradaComponent
 ];

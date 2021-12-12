@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../../servicios/api/api.service';
 import { Router } from '@angular/router';
 import { EntradasI } from 'src/app/modelos/listarentradas.interface';
+import { NgxPaginationModule } from "ngx-pagination";
 import { CategoriasI } from 'src/app/modelos/listarcategorias.interface';
 
 @Component({
@@ -11,7 +12,7 @@ import { CategoriasI } from 'src/app/modelos/listarcategorias.interface';
 })
 export class HomepageEntradaComponent implements OnInit {
   entradas: EntradasI[] = [];
-  //page: number = 1;
+  p: number = 1;
   /* paginacion: any = []; */
   /*   categorias: CategoriasI[] = []; */
 
@@ -49,6 +50,8 @@ export class HomepageEntradaComponent implements OnInit {
     console.log(id);
     this.router.navigate(['entrada', id]);
   }
+
+
   /*   verEntradasEnCategoria(id: number) {
     console.log(id);
     this.router.navigate(['categoria', id])
