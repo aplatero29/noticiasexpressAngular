@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   loginForm = new FormGroup({
-    email: new FormControl('prueba@prueba.com', Validators.required),
+    email: new FormControl('prueba@prueba.comee', Validators.required),
     password: new FormControl('123456', Validators.required),
   });
 

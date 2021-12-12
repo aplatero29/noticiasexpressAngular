@@ -22,11 +22,13 @@ export class HttpResponseInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(
       catchError((err, caught: Observable<HttpEvent<any>>) => {
         if (err instanceof HttpErrorResponse && err.status == 401) {
-          localStorage.clear()
-          this.router.navigate(['/'], {
-            queryParams: { returnUrl: request.url },
-          });
-          return of(err as any);
+          localStorage.clear();
+          if (this.router.url == '/login' || this.router.url == '/registro') {
+            this.router.navigate(['/'], {
+              queryParams: { returnUrl: request.url },
+            });
+            return of(err as any);
+          }
         }
         throw err;
       })
