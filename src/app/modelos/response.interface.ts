@@ -6,3 +6,7 @@ export interface ResponseI {
   };
   userRol: string;
 }
+
+export interface MensajeI {
+  message: string;
+}

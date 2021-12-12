@@ -14,62 +14,117 @@
             <div class="card shadow">
               <div class="card-body">
                 <h4 class="card-title"><i class="fas fa-user"></i> Perfil</h4>
-                <p>Ajustes de cuenta</p>
+                <div class="d-flex justify-content-between">
+                  <p>Ajustes de cuenta</p>
+                  <p>
+                    Tipo de cuenta:
+                    <span class="fw-bold">{{ usuario.rol }}</span>
+                  </p>
+                </div>
                 <hr />
 
-                <form>
+                <form
+                  [formGroup]="editarForm"
+                  (ngSubmit)="editarUsuario(editarForm.value)"
+                >
                   <div class="form-group">
                     <label for="usuario">Nombre de usuario</label>
                     <input
                       type="text"
                       class="form-control"
                       id="usuario"
-                      aria-describedby="fullNameHelp"
-                      placeholder="Usuario"
-                      value="Kenneth Valdez"
+                      aria-describedby="usernameHelp"
+                      placeholder="Introduce tu nuevo usuario"
+                      value="{{ usuario.nombre }}"
+                      formControlName="usuario"
                     />
-                    <small id="fullNameHelp" class="form-text text-muted"
-                      >Your name may appear around here where you are mentioned.
-                      You can change or remove it at any time.</small
+                    <!-- TODO:ADD VALUES -->
+                    <small id="usernameHelp" class="form-text text-muted"
+                      >Puedes cambiar tu nombre de usuario cuando quieras</small
                     >
                   </div>
                   <div class="form-group">
-                    <label for="usuario">Correo electrónico</label>
+                    <label for="email">Correo electrónico</label>
                     <input
                       disabled
                       style="color: gray"
                       type="text"
                       class="form-control"
-                      id="usuario"
-                      aria-describedby="fullNameHelp"
-                      placeholder="Enter your fullname"
-                      value="Kenneth Valdez"
+                      id="email"
+                      aria-describedby="emailHelp"
+                      placeholder="Introduce tu nuevo correo"
+                      value="{{ usuario.email }}"
                     />
+                    <!-- TODO:ADD VALUES -->
                   </div>
-
+                  <hr />
                   <div class="form-group">
-                    <label for="location">Location</label>
+                    <label for="old-password">Contraseña actual</label>
                     <input
-                      type="text"
+                      type="password"
                       class="form-control"
-                      id="location"
-                      placeholder="Enter your location"
-                      value="Bay Area, San Francisco, CA"
+                      id="old-password"
+                      placeholder="Introduce tu contraseña actual"
+                      value="●●●●●●●●"
+                      formControlName="password"
                     />
+                    <!-- TODO:ADD VALUES -->
+                  </div>
+                  <div class="form-group">
+                    <label for="new-password">Contraseña nueva</label>
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="new-password"
+                      placeholder="Introduce tu nueva contraseña"
+                      value=""
+                      formControlName="newPassword"
+                    />
+                    <!-- TODO:ADD VALUES -->
+                  </div>
+                  <div class="form-group">
+                    <label for="new-password-repeat"
+                      >Repite contraseña nueva</label
+                    >
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="new-password-repeat"
+                      placeholder="Introduce otra vez tu nueva contraseña"
+                      value=""
+                      formControlName="confirmNewPassword"
+                    />
+                    <!-- TODO:ADD VALUES -->
                   </div>
                   <div class="form-group small text-muted">
-                    All of the fields on this page are optional and can be
-                    deleted at any time, and by filling them out, you're giving
-                    us consent to share this data wherever your user profile
-                    appears.
+                    Todos los campos editables de esta página pueden ser
+                    modificados en cualquier momento. Cuando rellenas los campos
+                    estás dando tu permiso para compartir estos datos en el
+                    sitio web.
                   </div>
-                  <button type="button" class="btn btn-primary">
-                    Update Profile
-                  </button>
-                  <button type="reset" class="btn btn-light">
-                    Reset Changes
-                  </button>
+                  <div class="">
+                    <button type="submit" class="btn btn-primary">
+                      Guardar cambios
+                    </button>
+                    <button type="reset" class="btn btn-light">Cancelar</button>
+                  </div>
                 </form>
+                <div
+                  id="formFooter"
+                  class="alert alert-danger mt-3"
+                  *ngIf="mensajeError"
+                >
+                  <!-- <a class="underlineHover" href="#">Forgot Password?</a> -->
+                  <p>{{ mensajeError }}</p>
+                </div>
+                <div
+                  id="formFooter"
+                  class="alert alert-success mt-3"
+                  *ngIf="mensajeOK"
+                >
+                  <!-- <a class="underlineHover" href="#">Forgot Password?</a> -->
+                  <p>{{ mensajeOK }}</p>
+                </div>
               </div>
             </div>
           </div>

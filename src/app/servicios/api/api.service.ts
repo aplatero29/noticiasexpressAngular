@@ -1,20 +1,11 @@
 import { Injectable } from '@angular/core';
 import { LoginI, RegistroI } from '../../modelos/auth.interface';
-import { ResponseI } from '../../modelos/response.interface';
+import { MensajeI, ResponseI } from '../../modelos/response.interface';
 import { EntradasI } from '../../modelos/listarentradas.interface';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { CategoriasI } from 'src/app/modelos/listarcategorias.interface';
 import { UsuariosI } from 'src/app/modelos/listarusuarios.interface';
-
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-};
-//let customHeader = new Headers({ Authorization: localStorage.getItem('token') || ''})
-const header = {
-  Authorization: localStorage.getItem('token') || '',
-};
-const requestOptions = { headers: header };
 
 @Injectable({
   providedIn: 'root',
@@ -59,9 +50,24 @@ export class ApiService {
     console.log(httpHeaders);
     return this.http.get<UsuariosI>(dir, { headers: httpHeaders });
   }
+
+  getUsuarioPorId(idUsuario: number | string): Observable<UsuariosI> {
+    let dir = this.url + 'usuarios/' + idUsuario;
+    return this.http.get<UsuariosI>(dir);
+  }
+
+  putUsuario(form: any, idUsuario: number | string): Observable<MensajeI> {
+    let dir = this.url + 'usuarios/' + idUsuario;
+    return this.http.put<MensajeI>(dir, form);
+  }
   /****************** ENTRADAS ******************/
-  getAllEntradas(pagina: number): Observable<EntradasI[]> {
-    let dir = this.url + 'entradas?page=' + pagina;
+  getAllEntradas(
+    pagina: number,
+    itemsPorPagina: number
+  ): Observable<EntradasI[]> {
+    //let dir = this.url + 'entradas?page=' + pagina;
+    //${pagina}&size=${itemsPorPagina}
+    let dir = `${this.url}entradas?page=${pagina}&page_size=${itemsPorPagina}`;
     return this.http.get<EntradasI[]>(dir);
   }
 
