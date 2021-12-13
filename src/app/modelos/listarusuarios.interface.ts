@@ -15,7 +15,7 @@ export interface UsuariosI {
 }
 
 enum roles {
-  'Admin',
-  'Autor',
-  'Usuario'
+  Admin = 'Admin',
+  Autor = 'Autor',
+  Usuario = 'Usuario'
 }

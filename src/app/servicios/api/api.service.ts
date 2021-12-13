@@ -75,6 +75,11 @@ export class ApiService {
     let dir = this.url + 'entradas/' + idEntrada;
     return this.http.get<EntradasI[]>(dir);
   }
+
+  getEntradasPorUsuario(idUsuario: number | string): Observable<EntradasI[]> {
+    let dir = this.url + 'usuario/' + idUsuario;
+    return this.http.get<EntradasI[]>(dir);
+  }
   /****************** CATEGORIAS ******************/
   getAllCategorias(): Observable<CategoriasI[]> {
     let dir = this.url + 'categorias';
@@ -84,7 +89,7 @@ export class ApiService {
   getEntradasPorCategoria(
     idCategoria: number | string
   ): Observable<CategoriasI[]> {
-    let dir = this.url + 'categorias/' + idCategoria;
+    let dir = this.url + 'categoria/' + idCategoria;
     return this.http.get<CategoriasI[]>(dir);
   }
 }

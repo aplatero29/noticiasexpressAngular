@@ -9,7 +9,7 @@ import { ApiService } from 'src/app/servicios/api/api.service';
 })
 export class HeaderComponent implements OnInit {
   idDeUsuario: number = 0;
-  rolDeUsuario: number = 0; //Atributo ENUM para los roles
+  rolDeUsuario: string = ''; //Atributo ENUM para los roles
 
   constructor(private api: ApiService, private router: Router) {}
 

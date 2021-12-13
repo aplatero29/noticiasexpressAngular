@@ -13,7 +13,10 @@
         <div class="row">
           <div
             class="col-sm-6"
-            *ngFor="let entrada of entradas | paginate: { itemsPerPage: 10, currentPage: p }"
+            *ngFor="
+              let entrada of entradas
+                | paginate: { itemsPerPage: 10, currentPage: p }
+            "
           >
             <div class="blog-grid">
               <div class="blog-img">
@@ -38,7 +41,11 @@
             </div>
             <!--  -->
           </div>
-          <pagination-controls (pageChange)="p=($event)" ></pagination-controls>
+          <div class="col-sm-12 justify-content-center">
+            <pagination-controls
+              (pageChange)="p = $event"
+            ></pagination-controls>
+          </div>
           <!-- Pagination -->
           <!-- <div class="col-12">
             <ul class="pagination justify-content-center">
@@ -73,7 +80,7 @@
       <div class="col-lg-4 m-15px-tb blog-aside">
         <!-- Autor -->
 
-        <app-sidebar></app-sidebar>
+        <app-sidebar-categorias></app-sidebar-categorias>
 
         <!-- End widget Tags -->
       </div>

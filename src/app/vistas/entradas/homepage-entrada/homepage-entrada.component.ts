@@ -13,13 +13,14 @@ import { CategoriasI } from 'src/app/modelos/listarcategorias.interface';
 export class HomepageEntradaComponent implements OnInit {
   entradas: EntradasI[] = [];
   p: number = 1;
+  itemsPorPagina: number = 5
   /* paginacion: any = []; */
   /*   categorias: CategoriasI[] = []; */
 
   constructor(private api: ApiService, private router: Router) {}
 
   ngOnInit(): void {
-    this.api.getAllEntradas(1).subscribe((data) => {
+    this.api.getAllEntradas(this.p, this.itemsPorPagina).subscribe((data) => {
       /***************  NO TOCAR -----  TRANSFORMA EL JSON EN UN ARRAY, Y NUEVAMENTE OTRO ARRAY */
       this.entradas = Object.values(data);
       /* this.paginacion = Object.values(this.entradas)

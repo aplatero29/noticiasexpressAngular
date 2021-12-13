@@ -6,8 +6,8 @@ import { ApiService } from 'src/app/servicios/api/api.service';
 
 @Component({
   selector: 'app-sidebar-categorias',
-  templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css'],
+  templateUrl: './sidebar-categorias.component.html',
+  styleUrls: ['./sidebar-categorias.component.css'],
 })
 export class SidebarCategoriasComponent implements OnInit {
   todasCategorias: CategoriasI[] = [];
@@ -17,7 +17,7 @@ export class SidebarCategoriasComponent implements OnInit {
   ngOnInit(): void {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
 
-    this.router.onSameUrlNavigation = 'reload'
+    this.router.onSameUrlNavigation = 'reload';
     this.api.getAllCategorias().subscribe((data) => {
       this.todasCategorias = Object.values(data);
       this.todasCategorias = Object.values(this.todasCategorias[0]);

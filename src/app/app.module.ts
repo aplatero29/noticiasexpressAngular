@@ -18,6 +18,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { AuthInterceptor } from './interceptors/auth/auth.interceptor';
 import { HttpResponseInterceptor } from './interceptors/http/http.interceptor';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { SidebarComponent } from './plantillas/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     FooterComponent,
     SidebarCategoriasComponent,
     routingComponents,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,
