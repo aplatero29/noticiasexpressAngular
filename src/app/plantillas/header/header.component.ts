@@ -15,15 +15,17 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUser();
-    console.log(this.rolDeUsuario);
+
   }
 
-  getUser() {
-    this.api.getUsuario().subscribe((data) => {
+   getUser() {
+    this.api.getUsuario().subscribe(data => {
       console.log(data);
       this.rolDeUsuario = data.rol;
       this.idDeUsuario = data.id;
+      sessionStorage.setItem('id', this.idDeUsuario.toString());
     });
+
   }
 
   goToLogin() {

@@ -34,26 +34,22 @@ export class ApiService {
     let dir = this.url + 'auth/logout';
     let token = localStorage.getItem('token');
     localStorage.clear();
+    sessionStorage.clear();
     return this.http.post(dir, {
       headers: { Authorization: token },
     });
   }
   /****************** USUARIOS ******************/
-  getUsuario() {
-    let token = localStorage.getItem('token');
-    const httpHeaders = new HttpHeaders({
-      Authorization: token!,
-    });
-
+  getUsuario(): Observable<UsuariosI> {
+    
     let dir = this.url + 'auth/me';
-
-    console.log(httpHeaders);
-    return this.http.get<UsuariosI>(dir, { headers: httpHeaders });
+    
+    return this.http.get<UsuariosI>(dir);
   }
 
-  getUsuarioPorId(idUsuario: number | string): Observable<UsuariosI> {
+  getUsuarioPorId(idUsuario: number | string): Observable<UsuariosI[]> {
     let dir = this.url + 'usuarios/' + idUsuario;
-    return this.http.get<UsuariosI>(dir);
+    return this.http.get<UsuariosI[]>(dir);
   }
 
   putUsuario(form: any, idUsuario: number | string): Observable<MensajeI> {

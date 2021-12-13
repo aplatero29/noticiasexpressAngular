@@ -36,6 +36,7 @@ export class UsuarioDetalleComponent implements OnInit {
   isLoggedIn() {
     if (!localStorage.getItem('token')) {
       localStorage.clear();
+      sessionStorage.clear();
       this.router.navigate(['/']);
     }
   }

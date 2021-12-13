@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './vistas/login/login.component';
-import { DashboardComponent } from './vistas/dashboard/dashboard.component';
+import { DashboardEntradasComponent } from './vistas/dashboard-entradas/dashboard-entradas.component';
 import { EditarEntradaComponent } from './vistas/entradas/editar-entrada/editar-entrada.component';
 import { NuevaEntradaComponent } from './vistas/entradas/nueva-entrada/nueva-entrada.component';
 import { HomepageEntradaComponent } from './vistas/entradas/homepage-entrada/homepage-entrada.component';
@@ -18,9 +18,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'registro', component: RegisterComponent },
   { path: 'usuario/:id', component: UsuarioDetalleComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'entradas/editar', component: EditarEntradaComponent },
-  { path: 'entradas/nueva', component: NuevaEntradaComponent },
+  { path: 'dashboard/entradas', component: DashboardEntradasComponent },
+  { path: 'dashboard/entradas/editar/:id', component: EditarEntradaComponent },
+  { path: 'dashboard/entradas/nueva', component: NuevaEntradaComponent },
   { path: 'entradas', component: HomepageEntradaComponent },
   { path: 'entrada/:id', component: DetalleEntradaComponent },
   { path: 'categoria/:id', component: VerEntradasComponent },
@@ -35,13 +35,15 @@ export class AppRoutingModule {}
 
 export const routingComponents = [
   LoginComponent,
-  DashboardComponent,
-  EditarEntradaComponent,
-  NuevaEntradaComponent,
+  RegisterComponent,
+  UsuarioDetalleComponent,
+  /////////////////////////
   HomepageEntradaComponent,
   VerEntradasComponent,
   DetalleEntradaComponent,
-  RegisterComponent,
-  UsuarioDetalleComponent,
-  PaginaNoEncontradaComponent
+  DashboardEntradasComponent,
+  EditarEntradaComponent,
+  NuevaEntradaComponent,
+  /////////////////////////
+  PaginaNoEncontradaComponent,
 ];
