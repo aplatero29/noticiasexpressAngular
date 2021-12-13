@@ -1,0 +1,84 @@
+<button
+  type="button"
+  class="btn btn-info me-5"
+  data-bs-toggle="modal"
+  data-bs-target="#editarModal"
+>
+  Ver detalle
+</button>
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="editarModal"
+  tabindex="-1"
+  aria-labelledby="editarModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-danger" id="editarModalLabel">
+          Detalles de entrada
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="updateForm" (ngSubmit)="onSubmit(updateForm.value)" *ngFor="let item of entrada">
+          <div class="mb-3">
+            <label for="inputTitulo1" class="form-label"
+              >Título</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="inputTitulo1"
+              aria-describedby="tituloHelp"
+              formControlName="titulo"
+              value="{{ item.titulo }}"
+            />
+            <div id="tituloHelp" class="form-text">
+              We'll never share your TITULO LOCAO with anyone else.
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="inputDescripcion1" class="form-label"
+              >Descripcion</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="inputDescripcion1"
+              formControlName="descripcion"
+              value="{{ item.descripcion }}"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="inputImagen1" class="form-label"
+              >Imagen</label
+            >
+            <input
+              type="file"
+              (change)="onFileChange($event)"
+              class="form-control"
+              id="inputImagen1"
+              
+              formControlName="imagen"
+            />
+            <img src="{{ item.imagen }}" alt="" />
+          </div>
+          <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">
+          Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

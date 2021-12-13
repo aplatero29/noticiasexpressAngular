@@ -19,6 +19,7 @@ import { AuthInterceptor } from './interceptors/auth/auth.interceptor';
 import { HttpResponseInterceptor } from './interceptors/http/http.interceptor';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SidebarComponent } from './plantillas/sidebar/sidebar.component';
+import { ModalComponent } from './plantillas/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { SidebarComponent } from './plantillas/sidebar/sidebar.component';
     SidebarCategoriasComponent,
     routingComponents,
     SidebarComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,
