@@ -1,6 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow sticky-top">
   <div class="container">
-    <a class="navbar-brand" [routerLink]="['/']"> <img src="assets/img/NE-no-fondo.png" alt=""> Noticias Express</a>
+    <a class="navbar-brand" [routerLink]="['/']">
+      <img src="assets/img/NE-64.png" alt=""
+    /></a>
     <button
       class="navbar-toggler"
       type="button"
@@ -34,7 +36,9 @@
           </div>
           <div *ngSwitchCase="'Autor'" class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link text-dark" [routerLink]="['/dashboard/entradas']"
+              <a
+                class="nav-link text-dark"
+                [routerLink]="['/dashboard/entradas']"
                 >Dashboard</a
               >
             </li>
@@ -53,7 +57,9 @@
           </div>
           <div *ngSwitchCase="'Admin'" class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link text-dark" [routerLink]="['/dashboard/entradas']"
+              <a
+                class="nav-link text-dark"
+                [routerLink]="['/dashboard/entradas']"
                 >Dashboard</a
               >
             </li>
