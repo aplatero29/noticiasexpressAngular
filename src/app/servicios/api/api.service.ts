@@ -6,12 +6,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { CategoriasI } from 'src/app/modelos/listarcategorias.interface';
 import { UsuariosI } from 'src/app/modelos/listarusuarios.interface';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiService {
-  url: string = 'http://noticiasexpress.test/api/v1/';
+  //url: string = 'http://noticiasexpress.test/api/v1/';
+  url=environment.urlApi;
 
   constructor(private http: HttpClient) {}
 
@@ -41,9 +43,8 @@ export class ApiService {
   }
   /****************** USUARIOS ******************/
   getUsuario(): Observable<UsuariosI> {
-    
     let dir = this.url + 'auth/me';
-    
+
     return this.http.get<UsuariosI>(dir);
   }
 
@@ -75,6 +76,14 @@ export class ApiService {
   getEntradasPorUsuario(idUsuario: number | string): Observable<EntradasI[]> {
     let dir = this.url + 'usuario/' + idUsuario;
     return this.http.get<EntradasI[]>(dir);
+  }
+
+  putEntrada(form: EntradasI[], idEntrada: number | string): Observable<MensajeI> {
+    let dir = this.url + 'entradas/' + idEntrada;
+
+    console.log(form)
+    const httpHeaders = new HttpHeaders();
+    return this.http.put<MensajeI>(dir, form, { headers: httpHeaders });
   }
   /****************** CATEGORIAS ******************/
   getAllCategorias(): Observable<CategoriasI[]> {

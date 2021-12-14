@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  urlApi: "https://noticiasexpress-app.herokuapp.com/api/v1/"
 };
