@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   loginForm = new FormGroup({
-    email: new FormControl('wbeltran@example.org', Validators.required),
+    email: new FormControl('wcollazo@example.net', Validators.required),
     password: new FormControl('password', Validators.required),
   });
 
@@ -20,16 +20,16 @@ export class LoginComponent implements OnInit {
   constructor(private api: ApiService, private router: Router) {}
 
   ngOnInit(): void {
-    /* this.comprobarToken(); */
+    this.comprobarToken();
   }
 
-  /* comprobarToken() {
+  comprobarToken() {
     console.log(localStorage);
 
     if (localStorage.getItem('token')) {
       this.router.navigate(['entradas']);
     }
-  } */
+  }
 
   onLogin(form: LoginI) {
     this.mensajeError = '';
@@ -38,10 +38,8 @@ export class LoginComponent implements OnInit {
         let respuesta = Object.values(res);
         let token = `${respuesta[0].original.access_token}`;
 
-        console.log(respuesta);
-        console.log(res.userRol);
 
-        localStorage.setItem('token', token); //Agregamos el token como Bearer XXXXX
+        localStorage.setItem('token', token);
         localStorage.setItem('rol', res.userRol);
         if (localStorage.getItem('rol')) {
           this.router.navigate(['entradas']);

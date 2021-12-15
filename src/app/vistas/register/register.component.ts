@@ -25,8 +25,6 @@ export class RegisterComponent implements OnInit {
   }
 
   comprobarToken() {
-    console.log(localStorage);
-    //console.log(this.helper);
     if (localStorage.getItem('token')) {
       this.router.navigate(['entradas']);
     }
@@ -38,9 +36,8 @@ export class RegisterComponent implements OnInit {
       (res) => {
         let respuesta = Object.values(res);
         let token = `${respuesta[0].original.access_token}`;
-        console.log(res)
-        console.log(res.userRol);
-        localStorage.setItem('token', token); //Agregamos el token como Bearer XXXXX
+
+        localStorage.setItem('token', token);
         localStorage.setItem('rol', res.userRol);
         this.router.navigate(['entradas']);
       },
