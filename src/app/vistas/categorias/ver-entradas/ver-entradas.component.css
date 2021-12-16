@@ -17,20 +17,19 @@ body {
   background: #ffffff;
   margin-top: 15px;
   margin-bottom: 15px;
-    background-size: cover;
+  background-size: cover;
   background-position: center;
   width: 100%;
   height: 95%;
+  flex: 1;
 }
 .blog-grid .blog-img {
-  position: relative;
-   padding-bottom: 80%;
 }
-.blog-img img {
-position: absolute;
-object-fit: fill;
-width: 100%;
-height: 100%;
+.blog-img {
+  position: relative;
+  object-fit: fill;
+  width: 100%;
+  height: fit-content;
 }
 /* 
 .blog-grid .blog-img .date {
@@ -304,4 +303,8 @@ img {
 
 .center {
   text-align: center;
+}
+
+.link {
+  flex: none;
 }

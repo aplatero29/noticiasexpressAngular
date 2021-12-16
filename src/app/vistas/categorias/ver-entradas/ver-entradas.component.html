@@ -15,51 +15,54 @@
     <div class="row align-items-start">
       <div class="col-lg-8 m-15px-tb">
         <div class="row">
-          <div class="col-sm-6" *ngFor="let entrada of entradas">
-            <div class="blog-grid">
+          <div
+            class="col-sm-6"
+            *ngFor="
+              let entrada of entradas
+                | slice: (page - 1) * pageSize:page * pageSize
+            "
+          >
+            <div class="blog-grid d-grid col-md-6 gap-1">
               <div class="blog-img">
                 <a (click)="entradaInfo(entrada.id)">
-                  <img src="{{ entrada.imagen }}" alt="" />
+                  <img src="{{ entrada.imagen }}" style="width: 100%" alt="" />
                 </a>
               </div>
-              <div class="blog-info">
+              <div class="blog-info h-100">
                 <h5>
                   <a (click)="entradaInfo(entrada.id)">{{ entrada.titulo }}</a>
                 </h5>
-                <p>
+                <p
+                  style="
+                    display: inline-block;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    max-width: 25ch;
+                    height: max-content;
+                  "
+                >
                   {{ entrada.descripcion }}
                 </p>
+                <br />
+                <hr />
                 <div class="btn-bar">
-                  <a href="#" class="px-btn-arrow">
-                    <span class="link">Read More</span>
-                    <i class="arrow"></i>
-                  </a>
+                  <p>
+                    Escrito por <strong>{{ entrada.autor.nombre }}</strong>
+                  </p>
                 </div>
               </div>
             </div>
           </div>
 
           <!-- Pagination -->
-          <div class="col-12">
-            <ul class="pagination justify-content-center">
-              <li class="page-item">
-                <a class="page-link" href="#" tabindex="-1"
-                  ><i class="fas fa-chevron-left"></i
-                ></a>
-              </li>
-              <li class="page-item"><a class="page-link" href="#">1</a></li>
-              <li class="page-item">
-                <a class="page-link" href="#"
-                  >2 <span class="sr-only">(current)</span></a
-                >
-              </li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item">
-                <a class="page-link" href="#"
-                  ><i class="fas fa-chevron-right"></i
-                ></a>
-              </li>
-            </ul>
+          <div class="col-sm-12 justify-content-center mt-3">
+            <ngb-pagination
+              class="d-flex justify-content-center"
+              [(page)]="page"
+              [collectionSize]="entradas.length"
+            >
+            </ngb-pagination>
           </div>
           <!-- End Pagination -->
         </div>

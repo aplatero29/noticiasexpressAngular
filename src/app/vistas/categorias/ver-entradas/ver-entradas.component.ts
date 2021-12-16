@@ -13,6 +13,8 @@ export class VerEntradasComponent implements OnInit {
   categoria: CategoriasI[] = [];
   entradas: EntradasI[] = [];
   categoriaId!: number;
+  page: number = 1;
+  pageSize: number = 10;
 
   constructor(
     private api: ApiService,
@@ -27,13 +29,11 @@ export class VerEntradasComponent implements OnInit {
 
     this.api.getEntradasPorCategoria(this.categoriaId).subscribe((data) => {
       this.categoria = Object.values(data);
-      console.log(this.categoria);
-      console.log(this.categoria[1]);
+
       this.entradas = Object.values(this.categoria[1]);
-      console.log(this.entradas);
 
       this.parseFechas();
-      console.log(this.entradas);
+
     });
   }
 
@@ -46,7 +46,7 @@ export class VerEntradasComponent implements OnInit {
   }
 
   entradaInfo(id: number) {
-    console.log(id);
+
     this.router.navigate(['entrada', id]);
   }
 }
