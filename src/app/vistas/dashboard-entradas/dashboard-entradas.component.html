@@ -20,7 +20,11 @@
         <th scope="row">{{ entrada.id }}</th>
         <td>{{ entrada.autor.nombre }}</td>
         <td>{{ entrada.categoria.nombre }}</td>
-        <td><span class="d-inline-block text-truncate" style="max-width: 100px">{{ entrada.titulo }}</span></td>
+        <td>
+          <span class="d-inline-block text-truncate" style="max-width: 100px">{{
+            entrada.titulo
+          }}</span>
+        </td>
         <td><img src="{{ entrada.imagen }}" alt="" /></td>
         <td>
           <span class="d-inline-block text-truncate" style="max-width: 100px">{{
@@ -29,7 +33,20 @@
         </td>
         <td>{{ entrada.created_at }}</td>
         <td>{{ entrada.updated_at }}</td>
-        <td><button [routerLink]="['editar', entrada.id]">(click)="abrirDetalles(entrada.id)"</button></td>
+        <td>
+          <div class="row">
+            <div class="col-2">
+              <button class="btn btn-md" [routerLink]="['editar', entrada.id]">
+                <i class="fas fa-edit"></i>
+              </button>
+            </div>
+            <div class="col-6">
+              <button class="btn btn-md" [routerLink]="['editar', entrada.id]">
+                <i class="fas fa-trash-alt"></i>
+              </button>
+            </div>
+          </div>
+        </td>
       </tr>
     </tbody>
   </table>

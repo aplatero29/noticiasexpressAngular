@@ -64,7 +64,6 @@ export class DashboardEntradasComponent implements OnInit {
       });
     }
     if (localStorage.getItem('rol') == 'Admin') {
-      console.log('hey22');
       this.api.getAllEntradas(this.p, this.itemsPorPagina).subscribe((data) => {
         /***************  NO TOCAR -----  TRANSFORMA EL JSON EN UN ARRAY, Y NUEVAMENTE OTRO ARRAY */
         this.entradas = Object.values(data);
