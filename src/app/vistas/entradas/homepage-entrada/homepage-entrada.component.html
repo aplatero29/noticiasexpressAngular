@@ -18,13 +18,13 @@
                 | slice: (page - 1) * pageSize:page * pageSize
             "
           >
-            <div class="blog-grid d-flex flex-column align-items-stretch">
+            <div class="blog-grid d-grid col-md-6 gap-1">
               <div class="blog-img">
                 <a class="img-fluid" (click)="entradaInfo(entrada.id)">
-                  <img src="{{ entrada.imagen }}" height="" alt="" />
+                  <img src="{{ entrada.imagen }}" style="width: 100%" alt="" />
                 </a>
               </div>
-              <div class="d-absolute"></div>
+              <!-- <div class="d-absolute"></div> -->
               <div class="blog-info h-100">
                 <h5>
                   <a (click)="entradaInfo(entrada.id)">{{ entrada.titulo }}</a>
@@ -36,17 +36,15 @@
                     overflow: hidden;
                     text-overflow: ellipsis;
                     max-width: 25ch;
+                    height: max-content;
                   "
                 >
                   {{ entrada.descripcion }}
                 </p>
-                <br>
-                <hr>
+                <br />
+                <hr />
                 <div class="btn-bar">
-                  <a href="#" class="px-btn-arrow">
-                    <span class="link" style="margin-top: auto">Read More</span>
-                    <i class="arrow"></i>
-                  </a>
+                  <p>Escrito por <strong>{{ entrada.autor.nombre }}</strong></p>
                 </div>
               </div>
             </div>
