@@ -12,8 +12,8 @@ import { environment } from 'src/environments/environment.prod';
   providedIn: 'root',
 })
 export class ApiService {
-  //url: string = 'http://noticiasexpress.test/api/v1/';
-  url=environment.urlApi;
+  url: string = 'http://noticiasexpress.test/api/v1/';
+  //url=environment.urlApi;
 
   constructor(private http: HttpClient) {}
 
@@ -63,8 +63,8 @@ export class ApiService {
     itemsPorPagina: number
   ): Observable<EntradasI[]> {
     //let dir = this.url + 'entradas?page=' + pagina;
-    //${pagina}&size=${itemsPorPagina}
-    let dir = `${this.url}entradas?page=${pagina}&page_size=${itemsPorPagina}`;
+    //${pagina}&size=${itemsPorPagina}      &page_size=${itemsPorPagina}
+    let dir = `${this.url}entradas`;
     return this.http.get<EntradasI[]>(dir);
   }
 
@@ -78,10 +78,13 @@ export class ApiService {
     return this.http.get<EntradasI[]>(dir);
   }
 
-  putEntrada(form: EntradasI[], idEntrada: number | string): Observable<MensajeI> {
+  putEntrada(
+    form: EntradasI[],
+    idEntrada: number | string
+  ): Observable<MensajeI> {
     let dir = this.url + 'entradas/' + idEntrada;
 
-    console.log(form)
+    console.log(form);
     const httpHeaders = new HttpHeaders();
     return this.http.put<MensajeI>(dir, form, { headers: httpHeaders });
   }
