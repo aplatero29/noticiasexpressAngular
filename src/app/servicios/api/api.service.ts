@@ -12,8 +12,8 @@ import { environment } from 'src/environments/environment.prod';
   providedIn: 'root',
 })
 export class ApiService {
-  url: string = 'http://noticiasexpress.test/api/v1/';
-  //url=environment.urlApi;
+  //url: string = 'http://noticiasexpress.test/api/v1/';
+  url=environment.urlApi;
 
   constructor(private http: HttpClient) {}
 
