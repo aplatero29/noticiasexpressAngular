@@ -15,11 +15,11 @@
     </form>
     
     <!-- Remind Passowrd -->
-    <hr>
-    <p>¿Eres nuevo? <a class="underlineHover" [routerLink]="['/registro']" > Registrate</a></p>
-    <div id="formFooter" class="alert alert-danger" *ngIf="mensajeError">
+    <div id="formFooter" class="alert alert-danger mx-2" *ngIf="mensajeError">
       <p>{{ mensajeError }}</p> 
     </div>
+    <hr>
+    <p>¿Eres nuevo? <a class="underlineHover" [routerLink]="['/registro']" > Registrate</a></p>
 
   </div>
 </div>

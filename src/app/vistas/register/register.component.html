@@ -9,18 +9,18 @@
 
     <!-- Registro Form -->
     <form [formGroup]="registroForm" (ngSubmit)="onRegistro(registroForm.value)">
-      <input type="text" id="login" class="fadeIn second" placeholder="Nombre..." formControlName="nombre">
+      <input type="text" id="login" class="fadeIn first" placeholder="Nombre..." formControlName="nombre">
       <input type="email" id="email" class="fadeIn second" placeholder="Email..." formControlName="email">
       <input type="password" id="password" class="fadeIn third" placeholder="Contraseña..." formControlName="password">
         <button type="submit" class="fadeIn fourth">Registrarse</button>
     </form>
     
     <!-- Remind Passowrd -->
-    <hr>
-    <p>¿Ya tienes una cuenta? <a class="underlineHover" [routerLink]="['/login']" > Inicia sesion</a></p>
-    <div id="formFooter" class="alert alert-danger" *ngIf="mensajeError">
+    <div id="formFooter" class="alert alert-danger mx-2" *ngIf="mensajeError">
       <p>{{ mensajeError }}</p> 
     </div>
+    <hr>
+    <p>¿Ya tienes una cuenta? <a class="underlineHover" [routerLink]="['/login']" > Inicia sesion</a></p>
 
   </div>
 </div>
