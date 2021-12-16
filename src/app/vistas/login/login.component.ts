@@ -24,8 +24,6 @@ export class LoginComponent implements OnInit {
   }
 
   comprobarToken() {
-    console.log(localStorage);
-
     if (localStorage.getItem('token')) {
       this.router.navigate(['entradas']);
     }

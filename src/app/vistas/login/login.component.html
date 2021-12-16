@@ -1,22 +1,23 @@
-<div class="wrapper fadeInDown">
+<div class="d-flex wrapper fadeInDown align-items-center min-vh-100">
   <div id="formContent">
     <!-- Tabs Titles -->
 
     <!-- Icon -->
-   <!--  <div class="fadeIn first">
-      <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
-    </div> -->
+    <div class="my-3 fadeIn first">
+      <img src="assets/img/NE.svg" height="200em" id="icon" alt="User Icon" />
+    </div>
 
     <!-- Login Form -->
     <form [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm.value)">
-      <input type="text" id="login" class="fadeIn second" placeholder="Email..." formControlName="email">
+      <input type="email" id="login" class="fadeIn second" placeholder="Email..." formControlName="email">
       <input type="password" id="password" class="fadeIn third" placeholder="Contraseña..." formControlName="password">
       <button type="submit" class="fadeIn fourth">Iniciar sesión</button>
     </form>
     
     <!-- Remind Passowrd -->
-     <div id="formFooter" class="alert alert-danger" *ngIf="mensajeError">
-      <!-- <a class="underlineHover" href="#">Forgot Password?</a> -->
+    <hr>
+    <p>¿Eres nuevo? <a class="underlineHover" [routerLink]="['/registro']" > Registrate</a></p>
+    <div id="formFooter" class="alert alert-danger" *ngIf="mensajeError">
       <p>{{ mensajeError }}</p> 
     </div>
 
