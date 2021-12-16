@@ -40,7 +40,7 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  logout() {
+  cerrarSesion() {
     this.api.cerrarSesion();
     window.location.reload();
   }

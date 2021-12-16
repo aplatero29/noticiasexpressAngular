@@ -28,7 +28,7 @@
             <li class="nav-item">
               <a
                 class="nav-link text-dark"
-                (click)="logout()"
+                (click)="cerrarSesion()"
                 [routerLink]="['/']"
                 >Cerrar sesión</a
               >
@@ -50,7 +50,7 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link text-dark" [routerLink]="['/logout']"
+              <a class="nav-link text-dark" [routerLink]="['/']" (click)="cerrarSesion()"
                 >Cerrar sesión</a
               >
             </li>
@@ -71,7 +71,7 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link text-dark" [routerLink]="['/logout']"
+              <a class="nav-link text-dark" [routerLink]="['/']" (click)="cerrarSesion()"
                 >Cerrar sesión</a
               >
             </li>
