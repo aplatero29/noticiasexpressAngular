@@ -18,14 +18,14 @@
                 | slice: (page - 1) * pageSize:page * pageSize
             "
           >
-            <div class="blog-grid d-flex flex-column">
+            <div class="blog-grid d-flex flex-column align-items-stretch">
               <div class="blog-img">
                 <a class="img-fluid" (click)="entradaInfo(entrada.id)">
-                  <img src="{{ entrada.imagen }}" height="%" alt="" />
+                  <img src="{{ entrada.imagen }}" height="" alt="" />
                 </a>
               </div>
               <div class="d-absolute"></div>
-              <div class="blog-info">
+              <div class="blog-info h-100">
                 <h5>
                   <a (click)="entradaInfo(entrada.id)">{{ entrada.titulo }}</a>
                 </h5>
@@ -40,9 +40,11 @@
                 >
                   {{ entrada.descripcion }}
                 </p>
+                <br>
+                <hr>
                 <div class="btn-bar">
                   <a href="#" class="px-btn-arrow">
-                    <span class="link" style="margin-top: auto;">Read More</span>
+                    <span class="link" style="margin-top: auto">Read More</span>
                     <i class="arrow"></i>
                   </a>
                 </div>
@@ -50,50 +52,14 @@
             </div>
             <!--  -->
           </div>
-          <div class="col-sm-12 justify-content-center">
+          <div class="col-sm-12 justify-content-center mt-3">
             <ngb-pagination
               class="d-flex justify-content-center"
               [(page)]="page"
               [collectionSize]="entradas.length"
             >
-              <ng-template
-                ngbPaginationPages
-                let-page
-                let-pages="pages"
-              ></ng-template>
             </ngb-pagination>
-            <!-- <pagination-controls
-              (pageChange)="p = $event"
-            ></pagination-controls> -->
           </div>
-          <!-- Pagination -->
-          <!-- <div class="col-12">
-            <ul class="pagination justify-content-center">
-              <li class="page-item">
-                <a class="page-link" href="#" tabindex="-1"
-                  ><i class="fas fa-chevron-left"></i
-                ></a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">1</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">2</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">3</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#"
-                  ><i class="fas fa-chevron-right"></i
-                ></a>
-              </li>
-              <span class="sr-only">(current)</span>
-
-            </ul>
-          </div> -->
-          <!-- End Pagination -->
-          <!--TODO: ADD PAGINATION-->
         </div>
       </div>
 
