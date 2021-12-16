@@ -9,7 +9,7 @@
 
     <!-- Registro Form -->
     <form [formGroup]="registroForm" (ngSubmit)="onRegistro(registroForm.value)">
-      <input type="text" id="login" class="fadeIn first" placeholder="Nombre..." formControlName="nombre">
+      <input type="text" id="login" class="fadeIn first" placeholder="Usuario..." formControlName="nombre">
       <input type="email" id="email" class="fadeIn second" placeholder="Email..." formControlName="email">
       <input type="password" id="password" class="fadeIn third" placeholder="Contraseña..." formControlName="password">
         <button type="submit" class="fadeIn fourth">Registrarse</button>
