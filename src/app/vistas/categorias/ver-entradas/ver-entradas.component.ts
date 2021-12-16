@@ -29,11 +29,8 @@ export class VerEntradasComponent implements OnInit {
 
     this.api.getEntradasPorCategoria(this.categoriaId).subscribe((data) => {
       this.categoria = Object.values(data);
-
       this.entradas = Object.values(this.categoria[1]);
-
       this.parseFechas();
-
     });
   }
 
@@ -46,7 +43,6 @@ export class VerEntradasComponent implements OnInit {
   }
 
   entradaInfo(id: number) {
-
     this.router.navigate(['entrada', id]);
   }
 }
