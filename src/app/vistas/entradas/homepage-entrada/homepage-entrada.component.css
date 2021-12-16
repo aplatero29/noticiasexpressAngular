@@ -19,17 +19,16 @@ body{margin-top:20px;}
   background-position: center;
   width: 100%;
   height: 95%;
-  
+  flex: 1;
 }
 .blog-grid .blog-img {
-  position: relative;
-  padding-bottom: 80%;
+  
+  
 }
-.blog-img img {
-position: absolute;
+.blog-img {
+position: relative;
 object-fit: fill;
 width: 100%;
-height: 100%;
 }
 /* .blog-grid .blog-img .date {
   position: absolute;
@@ -304,3 +303,9 @@ img {
     cursor: pointer;
 }
 
+.px-btn-arrow {
+ 
+}
+.link {
+  flex:none
+}

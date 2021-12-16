@@ -15,25 +15,34 @@
             class="col-sm-6"
             *ngFor="
               let entrada of entradas
-                | paginate: { itemsPerPage: 10, currentPage: p }
+                | slice: (page - 1) * pageSize:page * pageSize
             "
           >
-            <div class="blog-grid">
+            <div class="blog-grid d-flex flex-column">
               <div class="blog-img">
-                <a (click)="entradaInfo(entrada.id)">
-                  <img src="{{ entrada.imagen }}" alt="" />
+                <a class="img-fluid" (click)="entradaInfo(entrada.id)">
+                  <img src="{{ entrada.imagen }}" height="%" alt="" />
                 </a>
               </div>
+              <div class="d-absolute"></div>
               <div class="blog-info">
                 <h5>
                   <a (click)="entradaInfo(entrada.id)">{{ entrada.titulo }}</a>
                 </h5>
-                <p>
+                <p
+                  style="
+                    display: inline-block;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    max-width: 25ch;
+                  "
+                >
                   {{ entrada.descripcion }}
                 </p>
                 <div class="btn-bar">
                   <a href="#" class="px-btn-arrow">
-                    <span class="link">Read More</span>
+                    <span class="link" style="margin-top: auto;">Read More</span>
                     <i class="arrow"></i>
                   </a>
                 </div>
@@ -42,9 +51,20 @@
             <!--  -->
           </div>
           <div class="col-sm-12 justify-content-center">
-            <pagination-controls
+            <ngb-pagination
+              class="d-flex justify-content-center"
+              [(page)]="page"
+              [collectionSize]="entradas.length"
+            >
+              <ng-template
+                ngbPaginationPages
+                let-page
+                let-pages="pages"
+              ></ng-template>
+            </ngb-pagination>
+            <!-- <pagination-controls
               (pageChange)="p = $event"
-            ></pagination-controls>
+            ></pagination-controls> -->
           </div>
           <!-- Pagination -->
           <!-- <div class="col-12">

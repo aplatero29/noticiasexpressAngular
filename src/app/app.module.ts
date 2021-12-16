@@ -18,6 +18,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { AuthInterceptor } from './interceptors/auth/auth.interceptor';
 import { HttpResponseInterceptor } from './interceptors/http/http.interceptor';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SidebarComponent } from './plantillas/sidebar/sidebar.component';
 import { ModalComponent } from './plantillas/modal/modal.component';
 
@@ -38,6 +39,7 @@ import { ModalComponent } from './plantillas/modal/modal.component';
     FormsModule,
     HttpClientModule,
     NgxPaginationModule,
+    NgbModule,
     /* JwtHelperService, */
   ],
   providers: [

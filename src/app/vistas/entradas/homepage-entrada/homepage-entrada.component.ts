@@ -12,15 +12,16 @@ import { CategoriasI } from 'src/app/modelos/listarcategorias.interface';
 })
 export class HomepageEntradaComponent implements OnInit {
   entradas: EntradasI[] = [];
-  p: number = 1;
-  itemsPorPagina: number = 5
+  page: number = 1;
+  pageSize: number = 6;
+  /* itemsPorPagina: number = 5 */
   /* paginacion: any = []; */
   /*   categorias: CategoriasI[] = []; */
 
   constructor(private api: ApiService, private router: Router) {}
 
   ngOnInit(): void {
-    this.api.getAllEntradas(this.p, this.itemsPorPagina).subscribe((data) => {
+    this.api.getAllEntradas(this.page, this.pageSize).subscribe((data) => {
       /***************  NO TOCAR -----  TRANSFORMA EL JSON EN UN ARRAY, Y NUEVAMENTE OTRO ARRAY */
       this.entradas = Object.values(data);
       /* this.paginacion = Object.values(this.entradas)
@@ -52,6 +53,7 @@ export class HomepageEntradaComponent implements OnInit {
     this.router.navigate(['entrada', id]);
   }
 
+  
 
   /*   verEntradasEnCategoria(id: number) {
     console.log(id);
