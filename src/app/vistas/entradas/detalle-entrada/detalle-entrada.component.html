@@ -8,21 +8,14 @@
 <div class="blog-single gray-bg">
   <div class="container">
     <div class="row align-items-start">
-      <div class="col-lg-8 m-15px-tb">
+      <div class="col-md-8 m-15px-tb">
         <article class="article" *ngFor="let item of entrada">
           <div class="article-img">
-            <img src="{{ item.imagen }}" title="" alt="" />
+            <img src="{{ item.imagen }}" class="w-100" alt="" />
           </div>
           <div class="p-4">
             <div class="">
               <div class="media row">
-                <!-- <div class="avatar">
-                <img
-                  src="https://bootdey.com/img/Content/avatar/avatar1.png"
-                  title=""
-                  alt=""
-                />
-              </div> -->
                 <div class="article-title col-12">
                   <h2>{{ item.titulo }}</h2>
                 </div>
