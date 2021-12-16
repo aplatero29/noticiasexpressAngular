@@ -55,15 +55,21 @@
                   mr-0
                   tag-cloud
                   py-1
+                  d-flex
+                  flex-column
                 "
-                *ngFor="let categoria of todasCategorias"
               >
-                <a
-                  class="disabled"
-                  (click)="verEntradasEnCategoria(categoria.id)"
-                >
-                  &nbsp;{{ categoria.nombre }}
-                </a>
+                <div class="row">
+                  <div class="col-10">
+                    <a
+                      *ngFor="let categoria of todasCategorias"
+                      class="disabled"
+                      (click)="verEntradasEnCategoria(categoria.id)"
+                    >
+                      {{ categoria.nombre }}
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
