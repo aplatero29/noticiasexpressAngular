@@ -25,6 +25,11 @@ export class HttpResponseInterceptor implements HttpInterceptor {
           localStorage.clear();
           sessionStorage.clear();
           if (this.router.url == '/login' || this.router.url == '/registro') {
+            /* this.router.navigate(['/'], {
+              queryParams: { returnUrl: request.url },
+            }); */
+            return of(err as any);
+          } else {
             this.router.navigate(['/'], {
               queryParams: { returnUrl: request.url },
             });
