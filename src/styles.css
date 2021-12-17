@@ -1,6 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 
-@font-face {
-    font-family: 'Fjalla-One';
+/* svg {
+    font-family: 'Fjalla-One','Calibri', serif;
+} */
+
+ @font-face {
+    font-family: 'Fjalla One', sans-serif;
     src: url('assets/fonts/FjallaOne-Regular.ttf');
+    
 }
