@@ -25,6 +25,7 @@
                 <form
                   [formGroup]="editarForm"
                   (ngSubmit)="actualizarEntrada(editarForm.value)"
+                  enctype="multipart/form-data"
                 >
                   <div class="form-group">
                     <label for="titulo">Titulo</label>
@@ -81,7 +82,6 @@
                         <div *ngIf="f.image.errors.required"></div>
                     </div> -->
                   </div>
-                  <!-- TODO:AÑADIR INPUT HIDDEN PARA IDS?-->
                   <hr />
                   <!-- TODO:CAMBIAR TEXTO DE ABAJO -->
 

@@ -21,8 +21,6 @@ export class EditarEntradaComponent implements OnInit {
     titulo: new FormControl('', Validators.required),
     descripcion: new FormControl('', Validators.required),
     imagen: new FormControl(null),
-    user_id: new FormControl(''),
-    categoria_id: new FormControl(''),
   });
 
   constructor(
@@ -46,37 +44,29 @@ export class EditarEntradaComponent implements OnInit {
         titulo: this.entrada[0].titulo,
         descripcion: this.entrada[0].descripcion,
         imagen: this.entrada[0].imagen,
-        user_id: this.entrada[0].autor.id,
-        categoria_id: this.entrada[0].categoria.id,
       });
       console.log(this.editarForm);
     });
   }
-  actualizarEntrada(form: EntradasI) {
-    console.log(form);
-    var myFormData = new FormData();
-    myFormData.append('imagen', this.files, this.files.name);
-    myFormData.append('titulo', this.editarForm.get('titulo')?.value);
-    myFormData.append('descripcion', this.editarForm.get('descripcion')?.value);
-    myFormData.append('user_id', this.editarForm.get('user_id')?.value);
-    myFormData.append(
-      'categoria_id',
-      this.editarForm.get('categoria_id')?.value
-    );
 
-    let entradaNueva: EntradasI[] = [];
+  actualizarEntrada(form: EntradasI[]) {
+    console.log(form);
+    /* const formData = new FormData();
+    formData.append('titulo', form[0].titulo);
+    formData.append('descripcion', form[0].descripcion);
+    if (this.submitted) {
+      formData.append('imagen', this.files, this.files.name);
+    } */
+    /* let entradaNueva: EntradasI[] = [];
     entradaNueva[0].imagen = form.imagen;
     entradaNueva[0].titulo = form.titulo;
     entradaNueva[0].descripcion = form.descripcion;
     entradaNueva[0].autor.id = form.autor.id;
-    entradaNueva[0].categoria.id = form.categoria.id;
-    myFormData.forEach((value, key) => {
-      console.log(key + ' ' + value);
-    });
+    entradaNueva[0].categoria.id = form.categoria.id; */
 
     this.mensajeError = '';
     this.mensajeOK = '';
-    this.api.putEntrada(entradaNueva, this.entrada[0].id).subscribe(
+    this.api.putEntrada(form, this.entrada[0].id).subscribe(
       (res) => {
         console.log(res.message);
         this.mensajeOK = res.message;
@@ -92,6 +82,8 @@ export class EditarEntradaComponent implements OnInit {
 
   subirImagen(event: any) {
     this.files = event.target.files[0];
+    console.log(this.files);
+    this.submitted = true;
     console.log(event);
 
     this.editarForm.patchValue({

@@ -12,8 +12,10 @@ import { environment } from 'src/environments/environment.prod';
   providedIn: 'root',
 })
 export class ApiService {
+  [x: string]: any;
   //url: string = 'http://noticiasexpress.test/api/v1/';
-  url=environment.urlApi;
+  //url = environment.urlApi;
+  url: string = 'http://127.0.0.1:8000/api/v1/';
 
   constructor(private http: HttpClient) {}
 
@@ -84,7 +86,6 @@ export class ApiService {
   ): Observable<MensajeI> {
     let dir = this.url + 'entradas/' + idEntrada;
 
-    console.log(form);
     const httpHeaders = new HttpHeaders();
     return this.http.put<MensajeI>(dir, form, { headers: httpHeaders });
   }
@@ -92,6 +93,11 @@ export class ApiService {
   getAllCategorias(): Observable<CategoriasI[]> {
     let dir = this.url + 'categorias';
     return this.http.get<CategoriasI[]>(dir);
+  }
+
+  getCategoria(categoria: number | string): Observable<CategoriasI> {
+    let dir = this.url + 'categoria/' + categoria;
+    return this.http.get<CategoriasI>(dir);
   }
 
   getEntradasPorCategoria(
