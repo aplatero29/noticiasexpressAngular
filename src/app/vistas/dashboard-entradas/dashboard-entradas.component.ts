@@ -1,8 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { switchMap } from 'rxjs';
 import { EntradasI } from 'src/app/modelos/listarentradas.interface';
 import { UsuariosI } from 'src/app/modelos/listarusuarios.interface';
+import { AlertasService } from 'src/app/servicios/alertas/alertas.service';
 import { ApiService } from '../../servicios/api/api.service';
 
 @Component({
@@ -11,45 +13,21 @@ import { ApiService } from '../../servicios/api/api.service';
   styleUrls: ['./dashboard-entradas.component.css'],
 })
 export class DashboardEntradasComponent implements OnInit {
-  rolUsuario: string = '';
-  bool!: boolean;
   entradas: EntradasI[] = [];
   usuario!: UsuariosI;
-  p: number = 1;
-  itemsPorPagina: number = 5;
-
-  @Input() id = 0;
+  page: number = 1;
+  pageSize: number = 10;
 
   constructor(
     private api: ApiService,
-    private router: Router,
-    private activeRoute: ActivatedRoute
+    private modalService: NgbModal,
+    private alertas: AlertasService
   ) {}
 
   ngOnInit(): void {
     const id = sessionStorage.getItem('id')!;
     this.getEntradas(id);
   }
-
-  /* comprobarToken() {
-    //if (localStorage.getItem('rol')) {
-    //TODO: ADD ROL RECOGNITION
-    this.api.getUsuario().subscribe((data) => {
-      console.log(data);
-      this.rolUsuario = data.rol;
-      this.usuario = data;
-      console.log(this.usuario);
-      if (this.rolUsuario == 'Admin') this.bool = true;
-      if (this.rolUsuario == 'Autor') this.bool = true;
-      console.log(this.bool);
-      console.log(2);
-    });
-    console.log(3);
-    // } else {
-    /* console.log('hey')
-      this.router.navigate(['login']);
-    }
-  }*/
 
   getEntradas(id: string | number) {
     if (localStorage.getItem('rol') == 'Autor') {
@@ -64,7 +42,7 @@ export class DashboardEntradasComponent implements OnInit {
       });
     }
     if (localStorage.getItem('rol') == 'Admin') {
-      this.api.getAllEntradas(this.p, this.itemsPorPagina).subscribe((data) => {
+      this.api.getAllEntradas(this.page, this.pageSize).subscribe((data) => {
         /***************  NO TOCAR -----  TRANSFORMA EL JSON EN UN ARRAY, Y NUEVAMENTE OTRO ARRAY */
         this.entradas = Object.values(data);
         console.log(this.entradas[0]);
@@ -84,7 +62,15 @@ export class DashboardEntradasComponent implements OnInit {
     });
   }
 
-  abrirDetalles(id: any){
-    
+  eliminarEntrada(id: number | string) {
+    this.api.deleteEntrada(id).subscribe((data) => {
+      this.modalService.dismissAll();
+      this.alertas.showSuccess('Completado', data.message);
+      this.ngOnInit();
+    });
+  }
+  
+  open(content: any) {
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
   }
 }

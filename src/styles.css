@@ -3,9 +3,9 @@
 /* svg {
     font-family: 'Fjalla-One','Calibri', serif;
 } */
+@import '~ngx-toastr/toastr.css';
 
- @font-face {
-    font-family: 'Fjalla One', sans-serif;
-    src: url('assets/fonts/FjallaOne-Regular.ttf');
-    
+@font-face {
+  font-family: "Fjalla One", sans-serif;
+  src: url("assets/fonts/FjallaOne-Regular.ttf");
 }

@@ -11,8 +11,6 @@ import { RegisterComponent } from './vistas/register/register.component';
 import { UsuarioDetalleComponent } from './vistas/usuario-detalle/usuario-detalle.component';
 import { PaginaNoEncontradaComponent } from './vistas/errores/pagina-no-encontrada/pagina-no-encontrada.component';
 
-//import { homedir } from 'os';
-
 const routes: Routes = [
   { path: '', redirectTo: 'entradas', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
@@ -20,7 +18,7 @@ const routes: Routes = [
   { path: 'usuario/:id', component: UsuarioDetalleComponent },
   { path: 'dashboard/entradas', component: DashboardEntradasComponent },
   { path: 'dashboard/entradas/editar/:id', component: EditarEntradaComponent },
-  { path: 'dashboard/entradas/nueva', component: NuevaEntradaComponent },
+  { path: 'dashboard/entradas/nuevo', component: NuevaEntradaComponent },
   { path: 'entradas', component: HomepageEntradaComponent },
   { path: 'entrada/:id', component: DetalleEntradaComponent },
   { path: 'categoria/:id', component: VerEntradasComponent },

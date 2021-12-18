@@ -79,11 +79,21 @@ export class ApiService {
     return this.http.get<EntradasI[]>(dir);
   }
 
+  postEntrada(form: any): Observable<MensajeI> {
+    let dir = this.url + 'entradas';
+    return this.http.post<MensajeI>(dir, form);
+  }
+
   putEntrada(form: any, idEntrada: number | string): Observable<MensajeI> {
     let dir = this.url + 'entradas/' + idEntrada;
     const httpHeaders = new HttpHeaders();
     console.log(dir, form);
     return this.http.put<MensajeI>(dir, form);
+  }
+
+  deleteEntrada(idEntrada: number | string): Observable<MensajeI> {
+    let dir = this.url + 'entradas/' + idEntrada;
+    return this.http.delete<MensajeI>(dir);
   }
   /****************** CATEGORIAS ******************/
   getAllCategorias(): Observable<CategoriasI[]> {
