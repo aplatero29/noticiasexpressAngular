@@ -53,6 +53,7 @@
                       class="form-control"
                       placeholder="Introduce la nueva descripción"
                       aria-describedby="descripcionHelp"
+                      formControlName="descripcion"
                       >{{ entrada[0].descripcion }}</textarea
                     >
                     <!-- <input
@@ -65,7 +66,7 @@
                     /> -->
                     <!-- TODO:ADD VALUES -->
                   </div>
-                  <div class="form-group mt-3">
+                 <!--  <div class="form-group mt-3">
                     <label for="imagen">Imagen</label>
                     <input
                       type="file"
@@ -77,11 +78,11 @@
                       formControlName="imagen"
                       (change)="subirImagen($event)"
                     />
-                    <!-- 
+                    
                     <div *ngIf="submitted & f.image.errors" class="invalid-feedback">
                         <div *ngIf="f.image.errors.required"></div>
-                    </div> -->
-                  </div>
+                    </div> 
+                  </div>-->
                   <hr />
                   <!-- TODO:CAMBIAR TEXTO DE ABAJO -->
 

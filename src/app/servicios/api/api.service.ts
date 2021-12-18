@@ -80,14 +80,11 @@ export class ApiService {
     return this.http.get<EntradasI[]>(dir);
   }
 
-  putEntrada(
-    form: EntradasI[],
-    idEntrada: number | string
-  ): Observable<MensajeI> {
+  putEntrada(form: any, idEntrada: number | string): Observable<MensajeI> {
     let dir = this.url + 'entradas/' + idEntrada;
-
-    const httpHeaders = new HttpHeaders();
-    return this.http.put<MensajeI>(dir, form, { headers: httpHeaders });
+    const httpHeaders = new HttpHeaders()
+    console.log(dir, form);
+    return this.http.put<MensajeI>(dir, form);
   }
   /****************** CATEGORIAS ******************/
   getAllCategorias(): Observable<CategoriasI[]> {

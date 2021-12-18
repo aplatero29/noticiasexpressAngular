@@ -10,17 +10,16 @@ import { ApiService } from 'src/app/servicios/api/api.service';
   styleUrls: ['./editar-entrada.component.css'],
 })
 export class EditarEntradaComponent implements OnInit {
-  entradaId: number | string = '';
-  entrada: EntradasI[] = [];
+  entrada!: EntradasI[];
+  entradaId!: number;
   mensajeOK: string = '';
   mensajeError: string = '';
-  submitted: boolean = false;
-  files: any;
+  /*   submitted: boolean = false;
+  files: any; */
 
   editarForm = new FormGroup({
     titulo: new FormControl('', Validators.required),
     descripcion: new FormControl('', Validators.required),
-    imagen: new FormControl(null),
   });
 
   constructor(
@@ -43,30 +42,16 @@ export class EditarEntradaComponent implements OnInit {
       this.editarForm.patchValue({
         titulo: this.entrada[0].titulo,
         descripcion: this.entrada[0].descripcion,
-        imagen: this.entrada[0].imagen,
       });
       console.log(this.editarForm);
     });
   }
 
-  actualizarEntrada(form: EntradasI[]) {
+  actualizarEntrada(form: EntradasI) {
     console.log(form);
-    /* const formData = new FormData();
-    formData.append('titulo', form[0].titulo);
-    formData.append('descripcion', form[0].descripcion);
-    if (this.submitted) {
-      formData.append('imagen', this.files, this.files.name);
-    } */
-    /* let entradaNueva: EntradasI[] = [];
-    entradaNueva[0].imagen = form.imagen;
-    entradaNueva[0].titulo = form.titulo;
-    entradaNueva[0].descripcion = form.descripcion;
-    entradaNueva[0].autor.id = form.autor.id;
-    entradaNueva[0].categoria.id = form.categoria.id; */
-
     this.mensajeError = '';
     this.mensajeOK = '';
-    this.api.putEntrada(form, this.entrada[0].id).subscribe(
+    this.api.putEntrada(form, this.entradaId).subscribe(
       (res) => {
         console.log(res.message);
         this.mensajeOK = res.message;
@@ -80,7 +65,7 @@ export class EditarEntradaComponent implements OnInit {
     );
   }
 
-  subirImagen(event: any) {
+  /* subirImagen(event: any) {
     this.files = event.target.files[0];
     console.log(this.files);
     this.submitted = true;
@@ -95,5 +80,5 @@ export class EditarEntradaComponent implements OnInit {
     reader.onload = () => {};
     console.log(this.editarForm);
     console.log(this.editarForm.get('imagen'));
-  }
+  } */
 }
