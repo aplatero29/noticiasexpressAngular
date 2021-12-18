@@ -12,8 +12,10 @@ import { environment } from 'src/environments/environment.prod';
   providedIn: 'root',
 })
 export class ApiService {
+  [x: string]: any;
   //url: string = 'http://noticiasexpress.test/api/v1/';
-  url=environment.urlApi;
+  //url = environment.urlApi;
+  url: string = 'http://127.0.0.1:8000/api/v1/';
 
   constructor(private http: HttpClient) {}
 
@@ -63,8 +65,8 @@ export class ApiService {
     itemsPorPagina: number
   ): Observable<EntradasI[]> {
     //let dir = this.url + 'entradas?page=' + pagina;
-    //${pagina}&size=${itemsPorPagina}
-    let dir = `${this.url}entradas?page=${pagina}&page_size=${itemsPorPagina}`;
+    //${pagina}&size=${itemsPorPagina}      &page_size=${itemsPorPagina}
+    let dir = `${this.url}entradas`;
     return this.http.get<EntradasI[]>(dir);
   }
 
@@ -78,17 +80,21 @@ export class ApiService {
     return this.http.get<EntradasI[]>(dir);
   }
 
-  putEntrada(form: EntradasI[], idEntrada: number | string): Observable<MensajeI> {
+  putEntrada(form: any, idEntrada: number | string): Observable<MensajeI> {
     let dir = this.url + 'entradas/' + idEntrada;
-
-    console.log(form)
-    const httpHeaders = new HttpHeaders();
-    return this.http.put<MensajeI>(dir, form, { headers: httpHeaders });
+    const httpHeaders = new HttpHeaders()
+    console.log(dir, form);
+    return this.http.put<MensajeI>(dir, form);
   }
   /****************** CATEGORIAS ******************/
   getAllCategorias(): Observable<CategoriasI[]> {
     let dir = this.url + 'categorias';
     return this.http.get<CategoriasI[]>(dir);
+  }
+
+  getCategoria(categoria: number | string): Observable<CategoriasI> {
+    let dir = this.url + 'categoria/' + categoria;
+    return this.http.get<CategoriasI>(dir);
   }
 
   getEntradasPorCategoria(
