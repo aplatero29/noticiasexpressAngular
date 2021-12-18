@@ -12,8 +12,9 @@ import { environment } from 'src/environments/environment.prod';
   providedIn: 'root',
 })
 export class ApiService {
-  //url: string = 'http://noticiasexpress.test/api/v1/';
-  url=environment.urlApi;
+  url = environment.urlApi; //URL Produccion
+  //url: string = 'http://noticiasexpress.test/api/v1/'; //URL Local (apache server)
+  //url: string = 'http://127.0.0.1:8000/api/v1/';  //URL php artisan serve
 
   constructor(private http: HttpClient) {}
 
@@ -80,10 +81,9 @@ export class ApiService {
 
   putEntrada(form: EntradasI[], idEntrada: number | string): Observable<MensajeI> {
     let dir = this.url + 'entradas/' + idEntrada;
-
-    console.log(form)
     const httpHeaders = new HttpHeaders();
-    return this.http.put<MensajeI>(dir, form, { headers: httpHeaders });
+    console.log(dir, form);
+    return this.http.put<MensajeI>(dir, form);
   }
   /****************** CATEGORIAS ******************/
   getAllCategorias(): Observable<CategoriasI[]> {
