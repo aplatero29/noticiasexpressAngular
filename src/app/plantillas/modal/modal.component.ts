@@ -27,15 +27,6 @@ export class ModalComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.id)
-    /* this.activeRouter.params.subscribe((params) => {
-      this.entradaId = +params['id'];
-    });*/
-
-    /* this.api.getEntrada(this.id).subscribe((data) => {
-      console.log(data);
-      this.entrada = Object.values(data);
-      console.log(this.entrada);
-    }); */
   }
 
   onFileChange(event: any): void {

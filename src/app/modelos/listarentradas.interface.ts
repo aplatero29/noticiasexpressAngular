@@ -6,7 +6,7 @@ export interface EntradasI {
   id: number;
   titulo: string;
   descripcion: string;
-  imagen: string;
+  imagen: any;
   autor: UsuariosI;
   categoria: CategoriasI;
   comentarios?: ComentariosI;
