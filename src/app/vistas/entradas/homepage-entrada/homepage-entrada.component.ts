@@ -42,9 +42,4 @@ export class HomepageEntradaComponent implements OnInit {
     console.log(id);
     this.router.navigate(['entrada', id]);
   }
-
-  /*   verEntradasEnCategoria(id: number) {
-    console.log(id);
-    this.router.navigate(['categoria', id])
-  } */
 }

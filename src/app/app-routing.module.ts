@@ -10,6 +10,9 @@ import { VerEntradasComponent } from './vistas/categorias/ver-entradas/ver-entra
 import { RegisterComponent } from './vistas/register/register.component';
 import { UsuarioDetalleComponent } from './vistas/usuario-detalle/usuario-detalle.component';
 import { PaginaNoEncontradaComponent } from './vistas/errores/pagina-no-encontrada/pagina-no-encontrada.component';
+import { DashboardUsuariosComponent } from './vistas/dashboard-usuarios/dashboard-usuarios.component';
+import { EditarUsuarioComponent } from './vistas/usuarios/editar-usuario/editar-usuario.component';
+import { NuevoUsuarioComponent } from './vistas/usuarios/nuevo-usuario/nuevo-usuario.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'entradas', pathMatch: 'full' },
@@ -19,6 +22,9 @@ const routes: Routes = [
   { path: 'dashboard/entradas', component: DashboardEntradasComponent },
   { path: 'dashboard/entradas/editar/:id', component: EditarEntradaComponent },
   { path: 'dashboard/entradas/nuevo', component: NuevaEntradaComponent },
+  { path: 'dashboard/usuarios', component: DashboardUsuariosComponent },
+  { path: 'dashboard/usuarios/editar/:id', component: EditarUsuarioComponent },
+  { path: 'dashboard/usuarios/nuevo', component: NuevoUsuarioComponent },
   { path: 'entradas', component: HomepageEntradaComponent },
   { path: 'entrada/:id', component: DetalleEntradaComponent },
   { path: 'categoria/:id', component: VerEntradasComponent },

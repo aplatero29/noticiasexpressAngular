@@ -55,6 +55,9 @@ export class EditarEntradaComponent implements OnInit {
       (res) => {
         console.log(res.message);
         this.mensajeOK = res.message;
+        setTimeout(() => {
+          this.router.navigate(['dashboard/entradas'])
+        }, 1000);
         //this.mensajeError = res
         //this.mensaje = res
       },

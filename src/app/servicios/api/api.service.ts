@@ -14,7 +14,7 @@ import { environment } from 'src/environments/environment.prod';
 export class ApiService {
   url = environment.urlApi; //URL Produccion
   //url: string = 'http://noticiasexpress.test/api/v1/'; //URL Local (apache server)
-  //url: string = 'http://127.0.0.1:8000/api/v1/';  //URL php artisan serve
+  //url: string = 'http://127.0.0.1:8000/api/v1/'; //URL php artisan serve
 
   constructor(private http: HttpClient) {}
 
@@ -49,14 +49,32 @@ export class ApiService {
     return this.http.get<UsuariosI>(dir);
   }
 
-  getUsuarioPorId(idUsuario: number | string): Observable<UsuariosI[]> {
+  getUsuarioPorId(idUsuario: number | string) {
     let dir = this.url + 'usuarios/' + idUsuario;
+    return this.http.get<[]>(dir);
+  }
+
+  getAllUsuarios(): Observable<UsuariosI[]> {
+    let dir = this.url + 'usuarios';
     return this.http.get<UsuariosI[]>(dir);
   }
 
   putUsuario(form: any, idUsuario: number | string): Observable<MensajeI> {
     let dir = this.url + 'usuarios/' + idUsuario;
     return this.http.put<MensajeI>(dir, form);
+  }
+
+  putUsuarioAdmin(form: any, idUsuario: number | string): Observable<MensajeI> {
+    let dir = this.url + 'usuario/' + idUsuario;
+    const headers = new HttpHeaders({
+      Accept: 'application/json',
+    });
+    return this.http.put<MensajeI>(dir, form, { headers: headers });
+  }
+
+  deleteUsuario(idUsuario: number | string): Observable<MensajeI> {
+    let dir = this.url + 'usuarios/' + idUsuario;
+    return this.http.delete<MensajeI>(dir);
   }
   /****************** ENTRADAS ******************/
   getAllEntradas(
@@ -81,7 +99,11 @@ export class ApiService {
 
   postEntrada(form: any): Observable<MensajeI> {
     let dir = this.url + 'entradas';
-    return this.http.post<MensajeI>(dir, form);
+    const headers = new HttpHeaders({
+      Accept: 'application/json',
+      'Content-Type': 'multipart/form-data',
+    });
+    return this.http.post<MensajeI>(dir, form, { headers: headers });
   }
 
   putEntrada(form: any, idEntrada: number | string): Observable<MensajeI> {

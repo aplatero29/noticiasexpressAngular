@@ -1,0 +1,116 @@
+<app-header></app-header>
+
+<div class="container table-responsive mt-5">
+  <div class="d-flex justify-content-between">
+    <h1>Gestión de usuarios</h1>
+    <button class="btn btn-lg btn-outline-success" [routerLink]="['/nuevo']">
+      <i class="fas fa-plus-circle"></i>
+      <span class="center"> Crear usuario</span>
+    </button>
+  </div>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Usuario</th>
+        <th scope="col">Email</th>
+        <th scope="col">Rol</th>
+        <th scope="col">Fecha de creación</th>
+        <th scope="col">Fecha de actualización</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="
+          let usuario of usuarios | slice: (page - 1) * pageSize:page * pageSize
+        "
+      >
+        <th scope="row">{{ usuario.id }}</th>
+        <td>{{ usuario.nombre }}</td>
+        <td>{{ usuario.email }}</td>
+        <td>{{ usuario.rol }}</td>
+        <td>{{ usuario.created_at }}</td>
+        <td>{{ usuario.updated_at }}</td>
+        <td>
+          <div class="row">
+            <div class="col-md-6">
+              <button
+                class="btn btn-sm btn-outline-info"
+                [routerLink]="['editar', usuario.id]"
+              >
+                <i class="fas fa-edit"></i>
+              </button>
+            </div>
+            <div class="col-md-6">
+              <button
+                class="btn btn-sm btn-outline-danger"
+                (click)="open(content)"
+              >
+                <i class="fas fa-trash-alt"></i>
+              </button>
+            </div>
+          </div>
+        </td>
+         <!-- MODAL -->
+        <ng-template #content let-modal>
+          <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">Borrar usuario</h4>
+            <button
+              type="button"
+              class="close"
+              aria-label="Close"
+              (click)="modal.dismiss('Cross click')"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>
+              <strong
+                >¿Desea borrar al usuario
+                <span class="text-primary">"{{ usuario.nombre }}"</span
+                >definitivamente?</strong
+              >
+            </p>
+            <p>
+              Todos los datos del usuario serán eliminados permanentemente.
+              <br /><br />
+              <span class="text-danger"
+                >Esta operación no puede ser desecha una vez completada.</span
+              >
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-outline-secondary"
+              (click)="modal.dismiss('cancel click')"
+            >
+              Cancelar
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger"
+              (click)="eliminarUsuario(usuario.id)"
+            >
+              Eliminar
+            </button>
+          </div>
+        </ng-template>
+        <!-- FIN MODAL -->
+      </tr>
+    </tbody>
+  </table>
+  <!-- PAGINACION -->
+  <div class="col-sm-12 justify-content-center mt-5 mb-3">
+    <ngb-pagination
+      class="d-flex justify-content-center"
+      [(page)]="page"
+      [collectionSize]="usuarios.length"
+    >
+    </ngb-pagination>
+  </div>
+  <!-- FIN PAGINACION-->
+</div>
+<app-footer></app-footer>

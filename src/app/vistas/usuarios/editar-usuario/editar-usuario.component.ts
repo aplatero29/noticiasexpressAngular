@@ -5,21 +5,19 @@ import { UsuariosI } from 'src/app/modelos/listarusuarios.interface';
 import { ApiService } from 'src/app/servicios/api/api.service';
 
 @Component({
-  selector: 'app-usuario-detalle',
-  templateUrl: './usuario-detalle.component.html',
-  styleUrls: ['./usuario-detalle.component.css'],
+  selector: 'app-editar-usuario',
+  templateUrl: './editar-usuario.component.html',
+  styleUrls: ['./editar-usuario.component.css'],
 })
-export class UsuarioDetalleComponent implements OnInit {
+export class EditarUsuarioComponent implements OnInit {
   usuario!: UsuariosI;
-  usuarioId!: number;
-  mensajeOK: string = '';
+  usuarioId: number=0;
   mensajeError: string = '';
+  mensajeOK: string = '';
 
   editarForm = new FormGroup({
-    usuario: new FormControl(''),
-    password: new FormControl('123456'),
-    newPassword: new FormControl('1234567'),
-    confirmNewPassword: new FormControl('1234567'),
+    nombre: new FormControl(''),
+    rol: new FormControl(''),
   });
 
   constructor(
@@ -37,20 +35,23 @@ export class UsuarioDetalleComponent implements OnInit {
       this.usuarioId = +params['id'];
     });
 
-    this.api.getUsuario().subscribe((data) => {
-      this.usuario = data;
+    this.api.getUsuarioPorId(this.usuarioId).subscribe((data) => {
+      let array = Object.values(data);
+      console.log(array[0])
+      this.usuario = array[0];
       console.log(this.usuario);
       this.editarForm.patchValue({
-        usuario: this.usuario.nombre,
+        nombre: this.usuario.nombre
       });
+
     });
   }
-
-  editarUsuario(form: UsuariosI) {
+  
+  actualizarUsuario(form: UsuariosI) {
     console.log(form);
     this.mensajeError = '';
     this.mensajeOK = '';
-    this.api.putUsuario(form, this.usuarioId).subscribe(
+    this.api.putUsuarioAdmin(form, this.usuarioId).subscribe(
       (res) => {
         console.log(res.message);
         this.mensajeOK = res.message;
@@ -59,7 +60,8 @@ export class UsuarioDetalleComponent implements OnInit {
       },
       (err) => {
         console.error(err);
-        this.mensajeError = 'No has realizado ningún cambio/Contraseña incorrecta';
+        this.mensajeError =
+          'No has realizado ningún cambio';
       }
     );
   }
