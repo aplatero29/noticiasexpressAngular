@@ -59,6 +59,11 @@ export class ApiService {
     return this.http.get<UsuariosI[]>(dir);
   }
 
+  postUsuario(form: any): Observable<MensajeI> {
+    let dir = this.url + 'usuarios';
+    return this.http.post<MensajeI>(dir, form);
+  }
+
   putUsuario(form: any, idUsuario: number | string): Observable<MensajeI> {
     let dir = this.url + 'usuarios/' + idUsuario;
     return this.http.put<MensajeI>(dir, form);

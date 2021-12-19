@@ -50,6 +50,7 @@ export class NuevaEntradaComponent implements OnInit {
       console.log(this.categorias);
     });
   }
+  
   seleccionarCategoria(e: any) {
     this.nuevoForm.patchValue(
       { categoria: e.target.value.slice(3) },
