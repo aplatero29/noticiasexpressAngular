@@ -18,6 +18,13 @@ import { ApiService } from 'src/app/servicios/api/api.service';
   templateUrl: './nueva-entrada.component.html',
   styleUrls: ['./nueva-entrada.component.css'],
 })
+/* export class Archivo {
+  constructor(
+    public id: number,
+    public nombre: string,
+    public imagen: string
+  ) {}
+} */
 export class NuevaEntradaComponent implements OnInit {
   categorias: CategoriasI[] = [];
   categoriaSeleccionada: string = '';
@@ -50,7 +57,7 @@ export class NuevaEntradaComponent implements OnInit {
       console.log(this.categorias);
     });
   }
-  
+
   seleccionarCategoria(e: any) {
     this.nuevoForm.patchValue(
       { categoria: e.target.value.slice(3) },
@@ -59,8 +66,8 @@ export class NuevaEntradaComponent implements OnInit {
   }
 
   imagesPreview(event: any) {
-    this.file = <File>event.target.files[0]
-    /* if (event.target.files && event.target.files[0]) {
+    //this.file = <File>event.target.files[0];
+    if (event.target.files && event.target.files[0]) {
       console.log(event.target.files[0]);
       const reader = new FileReader();
 
@@ -71,9 +78,9 @@ export class NuevaEntradaComponent implements OnInit {
           name: event.srcElement.files[0].name,
         };
       };
+      this.file = event.target.files[0];
       reader.readAsDataURL(event.target.files[0]);
-      reader.readAsDataURL(this.file)
-    } */
+    }
   }
 
   nuevaEntrada(form: any) {
@@ -82,7 +89,7 @@ export class NuevaEntradaComponent implements OnInit {
     formData.append('titulo', form.titulo);
     formData.append('descripcion', form.descripcion);
     formData.append('categoria', form.categoria);
-    formData.append('imagen', this.file, this.file.name);
+    formData.append('imagen', this.file);
     formData.forEach((value, key) => {
       console.log(key + ' - ' + value);
     });

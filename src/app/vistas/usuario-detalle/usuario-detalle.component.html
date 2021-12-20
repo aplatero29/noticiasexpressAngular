@@ -38,7 +38,7 @@
                       value="{{ usuario.nombre }}"
                       formControlName="usuario"
                     />
-                    <!-- TODO:ADD VALUES -->
+
                     <small id="usernameHelp" class="form-text text-muted"
                       >Puedes cambiar tu nombre de usuario cuando quieras</small
                     >
@@ -55,7 +55,6 @@
                       placeholder="Introduce tu nuevo correo"
                       value="{{ usuario.email }}"
                     />
-                    <!-- TODO:ADD VALUES -->
                   </div>
                   <hr />
                   <div class="form-group">
@@ -68,7 +67,6 @@
                       value="●●●●●●●●"
                       formControlName="password"
                     />
-                    <!-- TODO:ADD VALUES -->
                   </div>
                   <div class="form-group">
                     <label for="new-password">Contraseña nueva</label>
@@ -80,7 +78,6 @@
                       value=""
                       formControlName="newPassword"
                     />
-                    <!-- TODO:ADD VALUES -->
                   </div>
                   <div class="form-group">
                     <label for="new-password-repeat"
@@ -94,7 +91,6 @@
                       value=""
                       formControlName="confirmNewPassword"
                     />
-                    <!-- TODO:ADD VALUES -->
                   </div>
                   <div class="form-group small text-muted">
                     Todos los campos editables de esta página pueden ser
@@ -106,7 +102,20 @@
                     <button type="submit" class="btn btn-primary">
                       Guardar cambios
                     </button>
-                    <button type="reset" class="btn btn-light" [routerLink]="['/']" >Cancelar</button>
+                    <button
+                      type="button"
+                      class="btn btn-light"
+                      [routerLink]="['/']"
+                    >
+                      Cancelar
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-sm btn-outline-danger"
+                      (click)="open(content)"
+                    >
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
                   </div>
                 </form>
                 <div
@@ -125,6 +134,57 @@
                   <!-- <a class="underlineHover" href="#">Forgot Password?</a> -->
                   <p>{{ mensajeOK }}</p>
                 </div>
+                <!-- MODAL -->
+                <ng-template #content let-modal>
+                  <div class="modal-header">
+                    <h4 class="modal-title" id="modal-basic-title">
+                      Borrar usuario
+                    </h4>
+                    <button
+                      type="button"
+                      class="close"
+                      aria-label="Close"
+                      (click)="modal.dismiss('Cross click')"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p>
+                      <strong
+                        >¿Desea borrar al usuario
+                        <span class="text-primary">"{{ usuario.nombre }}"</span
+                        >definitivamente?</strong
+                      >
+                    </p>
+                    <p>
+                      Todos los datos del usuario serán eliminados
+                      permanentemente.
+                      <br /><br />
+                      <span class="text-danger"
+                        >Esta operación no puede ser desecha una vez
+                        completada.</span
+                      >
+                    </p>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary"
+                      (click)="modal.dismiss('cancel click')"
+                    >
+                      Cancelar
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-danger"
+                      (click)="eliminarUsuario(usuario.id)"
+                    >
+                      Eliminar
+                    </button>
+                  </div>
+                </ng-template>
+                <!-- FIN MODAL -->
               </div>
             </div>
           </div>

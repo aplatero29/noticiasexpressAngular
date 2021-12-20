@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { UsuariosI } from 'src/app/modelos/listarusuarios.interface';
 import { ApiService } from 'src/app/servicios/api/api.service';
 
@@ -25,6 +26,7 @@ export class UsuarioDetalleComponent implements OnInit {
   constructor(
     private api: ApiService,
     private router: Router,
+    private modalService: NgbModal,
     private activeRouter: ActivatedRoute
   ) {}
 
@@ -59,8 +61,20 @@ export class UsuarioDetalleComponent implements OnInit {
       },
       (err) => {
         console.error(err);
-        this.mensajeError = 'No has realizado ningún cambio/Contraseña incorrecta';
+        this.mensajeError =
+          'No has realizado ningún cambio/Contraseña incorrecta';
       }
     );
+  }
+
+  eliminarUsuario(id: number | string) {
+    this.api.deleteUsuario(id).subscribe((data) => {
+      this.modalService.dismissAll();
+      this.router.navigate(['/'])
+    });
+  }
+
+  open(content: any) {
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
   }
 }

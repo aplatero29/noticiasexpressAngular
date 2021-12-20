@@ -102,13 +102,21 @@ export class ApiService {
     return this.http.get<EntradasI[]>(dir);
   }
 
-  postEntrada(form: any): Observable<MensajeI> {
+  postEntrada(form: FormData): Observable<MensajeI> {
     let dir = this.url + 'entradas';
+
     const headers = new HttpHeaders({
       Accept: 'application/json',
-      'Content-Type': 'multipart/form-data',
+  /*      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'POST',
+      'Access-Control-Allow-Headers':
+        '*',
+      'Access-Control-Allow-Credentials': 'true', */
+/*       'Content-Type': 'multipart/form-data; boundary=9999999' */
     });
-    return this.http.post<MensajeI>(dir, form, { headers: headers });
+    return this.http.post<MensajeI>(dir, form/* , {
+      headers: headers,
+    } */);
   }
 
   putEntrada(form: any, idEntrada: number | string): Observable<MensajeI> {
