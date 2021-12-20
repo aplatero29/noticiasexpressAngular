@@ -15,6 +15,7 @@ import { ApiService } from '../../servicios/api/api.service';
 export class DashboardEntradasComponent implements OnInit {
   entradas: EntradasI[] = [];
   usuario!: UsuariosI;
+  vacio: boolean = false
   page: number = 1;
   pageSize: number = 10;
 
@@ -34,11 +35,15 @@ export class DashboardEntradasComponent implements OnInit {
       //console.log('autor');
       this.api.getEntradasPorUsuario(id).subscribe((data) => {
         /***************  NO TOCAR -----  TRANSFORMA EL JSON EN UN ARRAY, Y NUEVAMENTE OTRO ARRAY */
+        
         this.entradas = Object.values(data);
         console.log(this.entradas[0]);
         this.entradas = Object.values(this.entradas[0]);
         /************************ */
         this.parseFechas();
+        if (this.entradas.length == 0) {
+          this.vacio = true
+        }
       });
     }
     if (localStorage.getItem('rol') == 'Admin') {
