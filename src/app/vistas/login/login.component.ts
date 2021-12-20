@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
         }
       },
       (err) => {
-        console.log(err);
+        
         this.mensajeError = 'Email o contraseña incorrectos';
       }
     );

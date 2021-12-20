@@ -38,22 +38,22 @@ export class EditarEntradaComponent implements OnInit {
     });
     this.api.getEntrada(this.entradaId).subscribe((data) => {
       this.entrada = Object.values(data);
-      console.log(this.entrada);
+      
       this.editarForm.patchValue({
         titulo: this.entrada[0].titulo,
         descripcion: this.entrada[0].descripcion,
       });
-      console.log(this.editarForm);
+      
     });
   }
 
   actualizarEntrada(form: EntradasI) {
-    console.log(form);
+    
     this.mensajeError = '';
     this.mensajeOK = '';
     this.api.putEntrada(form, this.entradaId).subscribe(
       (res) => {
-        console.log(res.message);
+        
         this.mensajeOK = res.message;
         setTimeout(() => {
           this.router.navigate(['dashboard/entradas'])
@@ -70,9 +70,9 @@ export class EditarEntradaComponent implements OnInit {
 
   /* subirImagen(event: any) {
     this.files = event.target.files[0];
-    console.log(this.files);
+    
     this.submitted = true;
-    console.log(event);
+    
 
     this.editarForm.patchValue({
       imagen: this.files,
@@ -81,7 +81,7 @@ export class EditarEntradaComponent implements OnInit {
 
     const reader = new FileReader();
     reader.onload = () => {};
-    console.log(this.editarForm);
-    console.log(this.editarForm.get('imagen'));
+    
+    
   } */
 }

@@ -16,12 +16,14 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     if (localStorage.getItem('token')) {
       this.getUser();
+    } else {
+      this.goToLogin()
     }
   }
 
   getUser() {
     this.api.getUsuario().subscribe((data) => {
-      console.log(data);
+
       this.rolDeUsuario = data.rol;
       this.idDeUsuario = data.id;
       sessionStorage.setItem('id', this.idDeUsuario.toString());
@@ -42,6 +44,8 @@ export class HeaderComponent implements OnInit {
 
   cerrarSesion() {
     this.api.cerrarSesion();
-    window.location.reload();
+    if (this.router.url == '/' || this.router.url == '/entradas')
+      window.location.reload();
+    else '';
   }
 }

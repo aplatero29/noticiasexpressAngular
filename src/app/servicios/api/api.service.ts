@@ -122,7 +122,6 @@ export class ApiService {
   putEntrada(form: any, idEntrada: number | string): Observable<MensajeI> {
     let dir = this.url + 'entradas/' + idEntrada;
     const httpHeaders = new HttpHeaders();
-    console.log(dir, form);
     return this.http.put<MensajeI>(dir, form);
   }
 

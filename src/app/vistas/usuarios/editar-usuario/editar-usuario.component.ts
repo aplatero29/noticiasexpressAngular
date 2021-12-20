@@ -39,7 +39,7 @@ export class EditarUsuarioComponent implements OnInit {
       let array = Object.values(data);
       console.log(array[0])
       this.usuario = array[0];
-      console.log(this.usuario);
+      
       this.editarForm.patchValue({
         nombre: this.usuario.nombre
       });
@@ -48,12 +48,12 @@ export class EditarUsuarioComponent implements OnInit {
   }
   
   actualizarUsuario(form: UsuariosI) {
-    console.log(form);
+    
     this.mensajeError = '';
     this.mensajeOK = '';
     this.api.putUsuarioAdmin(form, this.usuarioId).subscribe(
       (res) => {
-        console.log(res.message);
+        
         this.mensajeOK = res.message;
         //this.mensajeError = res
         //this.mensaje = res

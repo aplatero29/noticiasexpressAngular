@@ -29,7 +29,6 @@ export class DashboardUsuariosComponent implements OnInit {
       this.usuarios = Object.values(data);
       this.usuarios = Object.values(this.usuarios[0]);
       this.parseDatos();
-      console.log(this.usuarios);
     });
   }
 

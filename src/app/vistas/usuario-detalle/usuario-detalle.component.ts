@@ -41,7 +41,7 @@ export class UsuarioDetalleComponent implements OnInit {
 
     this.api.getUsuario().subscribe((data) => {
       this.usuario = data;
-      console.log(this.usuario);
+      
       this.editarForm.patchValue({
         usuario: this.usuario.nombre,
       });
@@ -49,12 +49,12 @@ export class UsuarioDetalleComponent implements OnInit {
   }
 
   editarUsuario(form: UsuariosI) {
-    console.log(form);
+    
     this.mensajeError = '';
     this.mensajeOK = '';
     this.api.putUsuario(form, this.usuarioId).subscribe(
       (res) => {
-        console.log(res.message);
+        
         this.mensajeOK = res.message;
         //this.mensajeError = res
         //this.mensaje = res

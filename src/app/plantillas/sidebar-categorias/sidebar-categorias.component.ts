@@ -27,7 +27,6 @@ export class SidebarCategoriasComponent implements OnInit, AfterViewInit {
   }
 
   verEntradasEnCategoria(id: number) {
-    console.log(id);
     this.router.navigate(['categoria', id]);
   }
 }

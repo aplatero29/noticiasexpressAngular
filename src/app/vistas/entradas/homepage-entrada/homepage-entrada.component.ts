@@ -21,12 +21,12 @@ export class HomepageEntradaComponent implements OnInit {
       /***************  NO TOCAR -----  TRANSFORMA EL JSON EN UN ARRAY, Y NUEVAMENTE OTRO ARRAY */
       this.entradas = Object.values(data);
 
-      console.log(this.entradas);
-      console.log(this.entradas[0]);
+      
+      
       this.entradas = Object.values(this.entradas[0]);
       /************************ */
       this.parseFechas();
-      console.log(this.entradas);
+      
     });
   }
 
@@ -39,7 +39,7 @@ export class HomepageEntradaComponent implements OnInit {
   }
 
   entradaInfo(id: number) {
-    console.log(id);
+    
     this.router.navigate(['entrada', id]);
   }
 }

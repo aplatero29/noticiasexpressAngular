@@ -27,7 +27,7 @@ export class NuevoUsuarioComponent implements OnInit {
   ngOnInit(): void {}
 
   nuevoUsuario(form: any) {
-    console.log(form);
+    
     this.mensajeError = '';
     this.mensajeOK = '';
     this.api.postUsuario(form).subscribe(

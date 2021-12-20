@@ -42,7 +42,7 @@ export class RegisterComponent implements OnInit {
         this.router.navigate(['entradas']);
       },
       (err) => {
-        console.log(err);
+        
         this.mensajeError = 'Nombre, email o contraseña incorrectos';
       }
     );

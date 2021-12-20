@@ -51,10 +51,10 @@ export class NuevaEntradaComponent implements OnInit {
 
   todasCategorias() {
     this.api.getAllCategorias().subscribe((data) => {
-      console.log(data);
+      
       this.categorias = Object.values(data);
       this.categorias = Object.values(this.categorias[0]);
-      console.log(this.categorias);
+      
     });
   }
 
@@ -68,7 +68,7 @@ export class NuevaEntradaComponent implements OnInit {
   imagesPreview(event: any) {
     //this.file = <File>event.target.files[0];
     if (event.target.files && event.target.files[0]) {
-      console.log(event.target.files[0]);
+      
       const reader = new FileReader();
 
       reader.onload = (_event: any) => {
@@ -84,14 +84,14 @@ export class NuevaEntradaComponent implements OnInit {
   }
 
   nuevaEntrada(form: any) {
-    console.log(form);
+    
     const formData = new FormData();
     formData.append('titulo', form.titulo);
     formData.append('descripcion', form.descripcion);
     formData.append('categoria', form.categoria);
     formData.append('imagen', this.file);
     formData.forEach((value, key) => {
-      console.log(key + ' - ' + value);
+      
     });
 
     this.api.postEntrada(form).subscribe(
@@ -99,7 +99,7 @@ export class NuevaEntradaComponent implements OnInit {
         this.toast.showSuccess('Correcto', data.message);
       },
       (err) => {
-        console.log(err);
+        
         this.toast.showError('Error', err.errors);
       }
     );

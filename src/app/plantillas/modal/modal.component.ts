@@ -26,7 +26,6 @@ export class ModalComponent implements OnInit {
   constructor(private api: ApiService, private activeRouter: ActivatedRoute) {}
 
   ngOnInit(): void {
-    console.log(this.id)
   }
 
   onFileChange(event: any): void {
